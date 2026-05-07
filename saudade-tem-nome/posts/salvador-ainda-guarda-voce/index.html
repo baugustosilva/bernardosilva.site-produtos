@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>salvador, 06 de maio de 2026</title>
+  <meta name="description" content="saudade tem nome">
+  <link rel="icon" type="image/webp" href="../../../img/icon-bernardosilva.webp">
+  <link rel="preconnect" href="https://type.cargo.site" crossorigin>
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: "Monument Grotesk Variable";
+      src: url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff2") format("woff2-variations"),
+           url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff") format("woff");
+      font-style: normal;
+      font-weight: 200 1000;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      font-size: 62.5%;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      --brand-color: #000000;
+      --site-gutter-left: 8rem;
+      --site-gutter-right: 8rem;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: rgba(255, 255, 255, 0.72);
+      color: var(--brand-color);
+      font-family: "Monument Grotesk Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-variation-settings: "slnt" 0, "MONO" 0;
+      overflow-x: hidden;
+    }
+
+    body:not(.is-unlocked) #nav,
+    body:not(.is-unlocked) #post-wrap,
+    body:not(.is-unlocked) #grain-canvas {
+      display: none;
+    }
+
+    img,
+    video {
+      border: 0;
+      padding: 0;
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3.2rem;
+      background-color: rgba(255, 255, 255, 0.72);
+    }
+
+    body.is-unlocked #password-gate {
+      display: none;
+    }
+
+    .password-form {
+      width: min(100%, 34rem);
+    }
+
+    .password-form input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid currentColor;
+      border-radius: 0;
+      padding: 0 0 0.6rem;
+      background: transparent;
+      color: var(--brand-color);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-align: center;
+      outline: none;
+    }
+
+    .password-form input::placeholder {
+      color: currentColor;
+      opacity: 0.42;
+    }
+
+    .password-error {
+      min-height: 1.2em;
+      margin: 1.2rem 0 0;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .password-error.is-visible {
+      opacity: 1;
+    }
+
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    #nav-inner {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 3.5rem;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 2.4rem;
+      pointer-events: none;
+    }
+
+    #nav-title {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      opacity: 0.05;
+      pointer-events: auto;
+      transition: transform 0.16s ease;
+      will-change: transform;
+    }
+
+    #nav-title:hover,
+    #nav-title.is-active {
+      opacity: 1;
+    }
+
+    #nav-title-mini {
+      position: absolute;
+      left: 50%;
+      top: 3.5rem;
+      transform: translateX(-50%);
+      width: min(42vw, 29.4rem);
+      min-width: 21rem;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    #nav-title-mini img {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    #nav-title:hover ~ #nav-title-mini,
+    #nav-title.is-active ~ #nav-title-mini {
+      opacity: 0;
+    }
+
+    #nav-title-text,
+    .nav-title-echo {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    #nav-title-text {
+      z-index: 3;
+    }
+
+    #nav-title img,
+    .nav-title-echo {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .nav-title-echo {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: center center;
+      mix-blend-mode: multiply;
+      transition: transform 0.16s ease, opacity 0.16s ease, filter 0.16s ease;
+    }
+
+    #nav-title-echo-a {
+      z-index: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title-echo-b {
+      z-index: 2;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title.is-active #nav-title-echo-a {
+      opacity: 0.24;
+      filter: blur(0.35px);
+    }
+
+    #nav-title.is-active #nav-title-echo-b {
+      opacity: 0.16;
+      filter: blur(0.7px);
+    }
+
+    #post-wrap {
+      padding-top: 113.775px;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 8rem;
+    }
+
+    .post-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .post-video {
+      float: right;
+      width: min(25.76vw, 338px);
+      margin: 0.35rem 0 3.2rem 5.6rem;
+      aspect-ratio: 1080 / 1918;
+    }
+
+    .post-video video {
+      height: 100%;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .post-text {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      text-align: justify;
+      text-transform: lowercase;
+    }
+
+    .post-text::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .post-text p {
+      margin: 0 0 1.4em;
+    }
+
+    .post-date {
+      text-align: right;
+    }
+
+    .post-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    #grain-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0.42;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        --site-gutter-left: 3.2rem;
+        --site-gutter-right: 3.2rem;
+      }
+
+      #nav-inner {
+        padding-top: 1.6rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        padding-bottom: 2rem;
+      }
+
+      #nav-title-mini {
+        display: none;
+      }
+
+      #nav-title {
+        width: 100%;
+        opacity: 1;
+      }
+
+      #post-wrap {
+        padding-top: 113.775px;
+      }
+
+      .post-video {
+        margin-bottom: 5.6rem;
+      }
+
+      .post-video {
+        float: none;
+        width: 100%;
+        margin: 0 0 5.6rem;
+      }
+
+      .post-text {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="password-gate" role="dialog" aria-modal="true" aria-label="acesso">
+    <form class="password-form" id="password-form">
+      <input id="password-input" type="password" autocomplete="off" placeholder="senha" aria-label="senha">
+      <p class="password-error" id="password-error">senha incorreta</p>
+    </form>
+  </div>
+
+  <nav id="nav" aria-label="saudade tem nome">
+    <div id="nav-inner">
+      <a id="nav-title" href="../../" aria-label="saudade tem nome">
+        <img id="nav-title-echo-a" class="nav-title-echo" src="../../img/saudade-titulo.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-echo-b" class="nav-title-echo" src="../../img/saudade-titulo.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-text" src="../../img/saudade-titulo.png" alt="saudade tem nome" draggable="false">
+      </a>
+      <div id="nav-title-mini" aria-hidden="true">
+        <img src="../../img/saudade-titulo.png" alt="" draggable="false">
+      </div>
+    </div>
+  </nav>
+
+  <main id="post-wrap" aria-label="salvador, 06 de maio de 2026">
+    <article class="post-shell">
+      <div class="post-text">
+        <aside class="post-video" aria-label="vídeo">
+          <video controls playsinline preload="metadata">
+            <source src="../../img/posts/kenia_saudade-tem-nome.mp4" type="video/mp4">
+          </video>
+        </aside>
+
+        <p class="post-date">salvador, 06 de maio de 2026.</p>
+        <p>antes de qualquer coisa, preciso te dizer com a maior calma que me cabe hoje: nunca tive tanta certeza do quanto eu te amo.</p>
+        <p>bom dia, kênia.</p>
+        <p>neste domingo, decidi que precisava sair de casa, botar o corpo na rua, encarar a vida de frente, ou pelo menos pelo lado de fora. resolvi passar pelos lugares onde salvador foi nossa. não sei se era passeio, acerto de contas, despedida ou saudade. talvez fosse tudo isso junto, andando devagar dentro do meu peito.</p>
+        <p>sentei nas pedras do porto da barra. o cheiro da manhã não era bonito, a cidade nem sempre sabe ser delicada, mas o mar estava lá, delicado como só ele sabe ser. fedia a xixi, kênia, e ainda assim eu sentia saudade. uma saudade absurda, dessas que não pedem licença e se sentam ao lado da gente.</p>
+        <p>caminhei até a padó. fiquei do outro lado da calçada por alguns minutos, quieto, olhando como quem olha para uma fotografia antiga. o que eu tinha era memória, e nem tão antiga assim. revivi nós dois encostados na grade, esperando uma mesa, com aquela paciência boa de quem ainda não sabe que certos instantes, depois, viram casa. passei também pelo bar do chico, que estava abrindo, e, para não fugir ao costume, não tinha quase nada do cardápio. nem o caldo de camarão que a gente amou. e eu achei triste uma coisa tão pequena faltar daquele jeito. mas o chico, cujo nome eu não lembro, disse que eu poderia voltar mais tarde, que o caldo ia estar lá me esperando.</p>
+        <p>cruzei o bagacinho, o self-service verde do peixe feio, a escola de mergulho com os irmãos barbudos sentados na porta, e eles me cumprimentaram. de volta ao porto, sentei em um banco ao lado de um morador de rua e fiquei olhando o bar do pf de peixe bonito, o movimento do mana, essa vida toda acontecendo sem pedir opinião à nossa ausência.</p>
+        <p>depois de quase dois meses, calcei um tênis e decidi correr. fui até o rio vermelho. sentei na mureta em frente à casa de yemanjá e chorei. chorei debaixo de um sol duro, desses que não perdoam ninguém, e depois debaixo de uma chuva grossa, generosa, que lavou meu rosto salgado de suor e de tristeza. ali, parecia que salvador, por um instante, tinha entendido alguma coisa.</p>
+        <p>voltei numa bicicleta do itaú. horrível como sempre. a cada pedalada, vinha comigo um caminhão de coisas que eu queria ter vivido ao seu lado e não vivi. não por falta de amor ou vontade, mas por medo, por covardia, por essa minha demora em saber estar inteiro onde meu coração já estava. estou com raiva de mim, kênia. não como quem se condena para sempre, mas como quem finalmente enxerga o tamanho do que deixou passar.</p>
+        <p>à noite, fui surfar no farol. eu estava sozinho, as marolas eram pequenas e a visibilidade menor ainda. ali, eu pensei nos dias em que você entrou comigo na água para eu aprender seu esporte. queria te pedir desculpa por não ter vibrado mais. por não ter gritado seu nome a cada onda que você subia na minha frente. por não ter externado a beleza que era te ver no mar, tão viva, tão sua, tão maior que qualquer beleza possível do mundo. eu nunca te disse isso, mas, quando surfamos em jaguaribe, mesmo em um dia em que estávamos desconfortáveis um com o outro, eu morria de orgulho de te ver dentro do mar.</p>
+        <p>e eu estou indo embora de salvador, kênia. acho que estou. tem sido muito difícil ser sozinho aqui. em cada esquina parece haver uma versão minha tentando entender por que não te amei melhor quando você estava aqui perto. nunca senti tanta falta das pessoas que amo e nunca senti tanta falta de você.</p>
+        <p>sinto falta do bom dia na cama, do café bonito, da vida adulta interrompida por um almoço com cerveja no porto da barra. sinto falta do jeito como o amor às vezes aparecia sem fazer barulho, num olhar marejado, num “eu te amo” dito quase baixo, mas com o mundo inteiro dentro.</p>
+        <p>vai ser difícil desmontar essa casa que você montou comigo. que você montou para mim. ela foi feita também de você. do seu cuidado, da sua presença, do seu jeito de organizar as coisas e, sem perceber, organizar um pouco de mim.</p>
+        <p>nessa madrugada, editando o vídeo (anexo) da minha semana na sua casa, eu entendi uma coisa simples: é ao seu lado, de perto, que eu consigo imaginar minha vida acontecendo. não como sonho distante, nem como promessa bonita demais para caber no mundo, mas como cotidiano. como manhã, mercado, mar, trabalho, descanso, silêncio, riso, cuidado. como uma vida possível.</p>
+        <p>eu te amo, kênia, e eu quero poder viver a vida do seu lado e de perto.</p>
+        <p>com você, eu sonho de olho aberto.<br>quero amar e sempre ver de perto você.</p>
+      </div>
+    </article>
+  </main>
+
+  <canvas id="grain-canvas" aria-hidden="true"></canvas>
+
+  <script>
+    (function () {
+      const gateKey = 'saudade-tem-nome-unlocked';
+      const password = 'bom dia';
+      const passwordForm = document.getElementById('password-form');
+      const passwordInput = document.getElementById('password-input');
+      const passwordError = document.getElementById('password-error');
+      const notificationEndpoint = 'https://formspree.io/f/xdabdrzz';
+
+      function unlockPage() {
+        sessionStorage.setItem(gateKey, 'true');
+        document.body.classList.add('is-unlocked');
+      }
+
+      function notifyAccess() {
+        fetch(notificationEndpoint, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            subject: 'acesso saudade tem nome',
+            page: window.location.href,
+            path: window.location.pathname,
+            userAgent: navigator.userAgent,
+            accessedAt: new Date().toISOString()
+          })
+        }).catch(() => {});
+      }
+
+      if (sessionStorage.getItem(gateKey) === 'true') {
+        document.body.classList.add('is-unlocked');
+      } else {
+        window.requestAnimationFrame(() => passwordInput.focus());
+      }
+
+      passwordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (passwordInput.value.trim().toLowerCase() === password) {
+          notifyAccess();
+          unlockPage();
+          return;
+        }
+
+        passwordError.classList.add('is-visible');
+        passwordInput.value = '';
+        passwordInput.focus();
+      });
+
+      const navTitle = document.getElementById('nav-title');
+      const navTitleEchoA = document.getElementById('nav-title-echo-a');
+      const navTitleEchoB = document.getElementById('nav-title-echo-b');
+
+      function resetNavTitleMotion() {
+        navTitle.classList.remove('is-active');
+        navTitle.style.transform = '';
+        navTitleEchoA.style.transform = '';
+        navTitleEchoB.style.transform = '';
+      }
+
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(pointer: fine)').matches) {
+        navTitle.addEventListener('pointermove', (e) => {
+          const rect = navTitle.getBoundingClientRect();
+          const offsetX = ((e.clientX - rect.left) / rect.width) - 0.5;
+          const offsetY = ((e.clientY - rect.top) / rect.height) - 0.5;
+          const shiftX = offsetX * 0.75;
+          const shiftY = offsetY * 0.18;
+          const skewX = offsetX * 3.2;
+
+          navTitle.classList.add('is-active');
+          navTitle.style.transform = `translate3d(${shiftX * 0.06}rem, 0, 0) skewX(${skewX * 0.08}deg)`;
+          navTitleEchoA.style.transform = `translate3d(${shiftX * -1.15}rem, ${shiftY * -1.1}rem, 0) skewX(${skewX * -0.14}deg)`;
+          navTitleEchoB.style.transform = `translate3d(${shiftX * 1.45}rem, ${shiftY * 1.2}rem, 0) skewX(${skewX * 0.18}deg)`;
+        });
+
+        navTitle.addEventListener('pointerleave', resetNavTitleMotion);
+      }
+
+      const grainCanvas = document.getElementById('grain-canvas');
+      const grainCtx = grainCanvas.getContext('2d', { alpha: true });
+
+      function resizeGrainCanvas() {
+        grainCanvas.width = window.innerWidth;
+        grainCanvas.height = window.innerHeight;
+      }
+
+      function drawGrain() {
+        const width = grainCanvas.width;
+        const height = grainCanvas.height;
+        const imageData = grainCtx.createImageData(width, height);
+        const buffer = imageData.data;
+
+        for (let i = 0; i < buffer.length; i += 4) {
+          const noise = Math.random() * 255;
+          const alpha = Math.random() > 0.55 ? 95 : 35;
+
+          buffer[i] = noise;
+          buffer[i + 1] = noise;
+          buffer[i + 2] = noise;
+          buffer[i + 3] = alpha;
+        }
+
+        grainCtx.putImageData(imageData, 0, 0);
+      }
+
+      resizeGrainCanvas();
+      drawGrain();
+
+      window.addEventListener('resize', () => {
+        resizeGrainCanvas();
+        drawGrain();
+      });
+    })();
+  </script>
+</body>
+</html>

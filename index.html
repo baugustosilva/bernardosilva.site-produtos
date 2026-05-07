@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <title>Bernardo Silva - Produtos</title>
+  <meta name="description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bernardo Silva">
+  <meta property="og:title" content="Bernardo Silva - Produtos">
+  <meta property="og:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
+  <meta property="og:url" content="https://produtos.bernardosilva.site/">
+  <meta property="og:image" content="https://www.bernardosilva.site/img/og-bernardosilva.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bernardo Silva - fotografia de gastronomia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bernardo Silva - Produtos">
+  <meta name="twitter:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
+  <meta name="twitter:image" content="https://www.bernardosilva.site/img/og-bernardosilva.jpg">
+  <link rel="icon" type="image/webp" href="img/icon-bernardosilva.webp">
+  <link rel="preconnect" href="https://type.cargo.site" crossorigin>
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: "Monument Grotesk Variable";
+      src: url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff2") format("woff2-variations"),
+           url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff") format("woff");
+      font-style: normal;
+      font-weight: 200 1000;
+    }
+
+    @font-face {
+      font-display: block;
+      font-family: "Monument Grotesk Variable";
+      src: url("https://type.cargo.site/files/CargoMonumentGroteskItalicPlusVariable.woff2") format("woff2-variations"),
+           url("https://type.cargo.site/files/CargoMonumentGroteskItalicPlusVariable.woff") format("woff");
+      font-style: italic;
+      font-weight: 200 1000;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      font-size: 62.5%;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.03em;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      --brand-color: #000000;
+      --site-gutter-left: 8rem;
+      --site-gutter-right: 8rem;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.72);
+      color: var(--brand-color);
+      font-family: "Monument Grotesk Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 0.9;
+      font-variation-settings: "slnt" 0, "MONO" 0;
+      overflow-x: hidden;
+    }
+
+    img { border: 0; padding: 0; display: block; }
+    a { text-decoration: none; color: inherit; }
+    a:active { opacity: 0.7; }
+
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    #nav-inner {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 3.5rem;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 2.4rem;
+      pointer-events: none;
+    }
+
+    #nav-inner a {
+      pointer-events: auto;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    #nav-title {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      color: var(--brand-color);
+      opacity: 0.05;
+      transition: transform 0.16s ease;
+      will-change: transform;
+    }
+
+    #nav-title:hover,
+    #nav-title.is-active {
+      opacity: 1;
+    }
+
+    #nav-title-mini {
+      position: absolute;
+      left: 50%;
+      top: 3.5rem;
+      transform: translateX(-50%);
+      width: min(42vw, 29.4rem);
+      min-width: 21rem;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    #nav-title-mini img {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+      filter: brightness(0) saturate(100%);
+    }
+
+    #nav-title:hover ~ #nav-title-mini,
+    #nav-title.is-active ~ #nav-title-mini {
+      opacity: 0;
+    }
+
+    #nav-title-text,
+    .nav-title-echo {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    #nav-title-text {
+      z-index: 3;
+    }
+
+    #nav-title img,
+    .nav-title-echo {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+      filter: brightness(0) saturate(100%);
+    }
+
+    .nav-title-echo {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: center center;
+      mix-blend-mode: multiply;
+      transition: transform 0.16s ease, opacity 0.16s ease, filter 0.16s ease;
+    }
+
+    #nav-title-echo-a {
+      z-index: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title-echo-b {
+      z-index: 2;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title.is-active #nav-title-echo-a {
+      opacity: 0.24;
+      filter: blur(0.35px);
+    }
+
+    #nav-title.is-active #nav-title-echo-b {
+      opacity: 0.16;
+      filter: blur(0.7px);
+    }
+
+    #nav-about-btn,
+    #nav-close-btn {
+      pointer-events: auto;
+      position: absolute;
+      top: 3rem;
+      right: 10rem;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--brand-color);
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 1;
+    }
+
+    #nav-close-btn { display: none; }
+
+    #about-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    #about-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #about-text {
+      max-width: 800px;
+      width: calc(100% - var(--site-gutter-left) - var(--site-gutter-right));
+      text-align: justify;
+      font-family: Helvetica;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--brand-color);
+      letter-spacing: 0.01em;
+      text-transform: lowercase;
+    }
+
+    #about-text p {
+      margin: 0 0 2em 0;
+    }
+
+    #about-text p:last-child {
+      margin-bottom: 0;
+      letter-spacing: 0.08em;
+      text-align: justify;
+    }
+
+    #about-text .about-contact {
+      padding-top: 1.2em;
+      font-size: 0.85em;
+      letter-spacing: 0.03em;
+      text-align: right;
+    }
+
+    #about-text p.about-contact:last-child {
+      text-align: right;
+      letter-spacing: 0.03em;
+    }
+
+    #about-text .about-contact::before {
+      content: "";
+      display: block;
+      width: 100%;
+      border-top: 1px solid currentColor;
+      opacity: 0.35;
+      margin-bottom: 1.2em;
+    }
+
+    #about-text .about-contact .contact-separator {
+      display: inline-block;
+      margin: 0 0.45em;
+      opacity: 0.5;
+    }
+
+    #about-text .about-contact-label {
+      font-weight: 700;
+    }
+
+    #gallery-wrap {
+      padding-top: 113.775px;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      columns: 7;
+      column-gap: 80px;
+      width: 100%;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 80px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      display: block;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    #lightbox {
+      /* Memory: previous equal-height format used one shared height variable.
+         Old values:
+         --lightbox-image-height: min(56vh, 520px);
+         .lightbox-side-image { height: var(--lightbox-image-height); max-width: min(27vw, 360px); }
+         #lightbox-img { height: var(--lightbox-image-height); max-width: min(27vw, 360px); }
+         Mobile:
+         --lightbox-image-height: min(30vh, 220px);
+         #lightbox-img { max-width: min(24vw, 144px); }
+      */
+      --lightbox-main-height: 84vh;
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.95);
+      cursor: zoom-out;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.32s ease;
+    }
+
+    #lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    #lightbox-track {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 2.4rem;
+      width: 100%;
+      max-width: min(94vw, 1800px);
+      padding: 0 8rem;
+      pointer-events: auto;
+      touch-action: pan-y;
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+      opacity: 1;
+    }
+
+    #lightbox.is-opening #lightbox-track {
+      transform: scale(0.996);
+      opacity: 0;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .lightbox-side-image {
+      width: auto;
+      height: var(--lightbox-main-height);
+      max-width: min(26vw, 420px);
+      opacity: 0.42;
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    #lightbox-prev-preview {
+      justify-self: end;
+    }
+
+    #lightbox-next-preview {
+      justify-self: start;
+    }
+
+    #lightbox .lightbox-side-image {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .lightbox-side-image.is-hidden {
+      opacity: 0;
+    }
+
+    .lightbox-side-image:not(.is-hidden) {
+      cursor: pointer;
+    }
+
+    .lightbox-side-image:not(.is-hidden):hover {
+      opacity: 0.68;
+      transform: scale(1.01);
+    }
+
+    #lightbox.is-opening .lightbox-side-image {
+      opacity: 0;
+      transform: none;
+    }
+
+    #lightbox-img {
+      width: auto;
+      height: var(--lightbox-main-height);
+      max-width: 84vw;
+      justify-self: center;
+      transform: scale(1);
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #lightbox.is-opening #lightbox-img {
+      transform: scale(0.992);
+    }
+
+    #lightbox #lightbox-img {
+      pointer-events: auto;
+      cursor: default;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--brand-color);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    #lightbox-prev,
+    #lightbox-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 5rem;
+      font-weight: 400;
+      color: var(--brand-color);
+      cursor: pointer;
+      padding: 1rem;
+      user-select: none;
+    }
+
+    #lightbox-prev { left: 2rem; }
+    #lightbox-next { right: 2rem; }
+
+    .lightbox-zoom-proxy {
+      position: fixed;
+      z-index: 1001;
+      margin: 0;
+      object-fit: contain;
+      pointer-events: none;
+      transform-origin: center center;
+      will-change: top, left, width, height;
+      transition:
+        top 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        left 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #grain-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0.42;
+    }
+
+    @media (max-width: 1200px) {
+      .gallery-grid { columns: 5; }
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid { columns: 4; }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        --site-gutter-left: 8rem;
+        --site-gutter-right: 8rem;
+      }
+      .gallery-grid { columns: 2; column-gap: 80px; }
+      .gallery-item { margin-bottom: 80px; }
+      #nav-inner {
+        padding-top: 1.6rem;
+        padding-left: var(--site-gutter-left);
+        padding-right: var(--site-gutter-right);
+        padding-bottom: 2rem;
+      }
+      #nav-about-btn,
+      #nav-close-btn {
+        top: auto;
+        bottom: 0rem;
+        right: 2.4rem;
+        transform: none;
+        font-size: 1.4rem;
+      }
+      #nav-title-mini {
+        display: none;
+      }
+      #lightbox {
+        --lightbox-main-height: 58vh;
+      }
+      #lightbox-track {
+        gap: 1.2rem;
+        padding: 0 4.8rem;
+      }
+      .lightbox-side-image {
+        max-width: min(26vw, 180px);
+      }
+      #lightbox-img {
+        max-width: 84vw;
+      }
+      #nav-title {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        --site-gutter-left: 8rem;
+        --site-gutter-right: 8rem;
+      }
+      .gallery-grid { columns: 2; }
+      #lightbox {
+        --lightbox-main-height: 50vh;
+      }
+      #lightbox-track {
+        gap: 0.8rem;
+        padding: 0 4.2rem;
+      }
+      .lightbox-side-image {
+        max-width: 24vw;
+      }
+      #nav-title {
+        width: 100%;
+        opacity: 1;
+      }
+      #nav-about-btn,
+      #nav-close-btn {
+        bottom: 0.05rem;
+        right: 2.4rem;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div id="nav-inner">
+      <a
+        id="nav-title"
+        href="#"
+        aria-label="Bernardo Silva Home"
+      >
+        <img id="nav-title-echo-a" class="nav-title-echo" src="img/logo-bernardosilva_new.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-echo-b" class="nav-title-echo" src="img/logo-bernardosilva_new.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-text" src="img/logo-bernardosilva_new.png" alt="{BERNARDO SILVA}" draggable="false">
+      </a>
+      <div id="nav-title-mini" aria-hidden="true">
+        <img src="img/logo-bernardosilva_new.png" alt="" draggable="false">
+      </div>
+      <button id="nav-about-btn" aria-label="Abrir sobre">about</button>
+      <button id="nav-close-btn" aria-label="Fechar sobre">close</button>
+    </div>
+  </nav>
+
+  <div id="about-overlay" role="dialog" aria-modal="true" aria-label="Sobre">
+    <div id="about-text">
+      <p>fotografo o que existe antes do acabamento. interessa menos a imagem que adorna e mais a imagem que sustenta. luz, matéria, gesto, tempo, superfície, presença. a fotografia, para mim, não serve ao excesso. ela serve ao recorte.</p>
+      <p>me interessa aquilo que ainda se impõe dentro da cena: a textura de um alimento, a densidade de uma sombra, a ordem silenciosa de um espaço, a forma como a luz toca aquilo que foi feito à mão. mais do que descrever pratos, ambientes ou objetos, procuro revelar a intensidade contida nas coisas em sua presença mais concreta.</p>
+      <p>trabalho com fotografia há mais de 10 anos, atravessando o digital e o analógico, a prática contemporânea e os processos manuais da imagem. sou também laboratorista analógico, e essa vivência molda a maneira como observo, construo e conduzo cada fotografia. há, para mim, um valor no tempo da imagem, na precisão do gesto e naquilo que a matéria ainda é capaz de reter.</p>
+      <p>ao longo desse percurso, desenvolvi uma linguagem visual contida, direta e atenta. uma linguagem que não separa forma e verdade. não me interessa idealizar a cena nem produzir imagens vazias de presença. procuro rigor, tensão e clareza. porque uma imagem só permanece quando há algo de real sustentando o que ela mostra.</p>
+      <p class="about-contact"><span class="about-contact-label">para projetos, conversas e orçamentos:</span><br><a href="mailto:baugustosilva@gmail.com">baugustosilva@gmail.com</a><span class="contact-separator">/</span><a href="https://wa.me/5531992484394" target="_blank" rel="noreferrer noopener">+55 31 992-484-394</a><span class="contact-separator">/</span><a href="https://instagram.com/bbbernardo.silva" target="_blank" rel="noreferrer noopener">@bbbernardo.silva</a></p>
+    </div>
+  </div>
+
+  <main id="gallery-wrap">
+    <div class="gallery-grid" id="gallery">
+      <div class="gallery-item" data-site-variant="home"><img src="img/grid/1985.webp" loading="lazy"></div>
+      <div class="gallery-item" data-gallery="20191009-Curamagoa" data-start="6" data-site-variant="home gastronomia"><img src="img/grid/20191009-Curamagoa-7941015.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20210906-Tapecaria-Aveia" data-start="0" data-site-variant="home produtos"><img src="img/grid/20210906-Tapecaria-Aveia-2148.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-site-variant="home"><img src="img/grid/20220901-Enquanto0446.webp" loading="lazy"></div>
+      <div class="gallery-item" data-gallery="20230807-Tapecaria-Aveia" data-start="2" data-site-variant="home produtos"><img src="img/grid/20230807-Tapecaria-Aveia-3258.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20181111-Copa-Cozinha" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20181111-Copa-Cozinha-00002.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20191204-Cozinha-da-Vo-Ana" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20191204-Cozinha-da-Vo-Ana-0002.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20200723-Forno-da-Saudade" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20200723-Forno-da-Saudade-0001.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20210528-Capim-Rosa" data-start="0" data-site-variant="home produtos"><img src="img/grid/20210528-Capim-Rosa-4842.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20211126-Capim-Rosa" data-start="0" data-site-variant="home produtos"><img src="img/grid/20211126-Capim-Rosa-2653.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20231207-Cozinha-Tupis" data-start="4" data-site-variant="home gastronomia"><img src="img/grid/20231207-Cozinha-Tupis-5865.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20240308-Oficina-Paraiso" data-start="11" data-site-variant="home"><img src="img/grid/20240308-Oficina-Paraiso-8109.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20230613-Juramento-202" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20230613-Juramento-202-2592.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20240404-Juramento-202" data-start="2" data-site-variant="home gastronomia"><img src="img/grid/20240404-Juramento-202-8679.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20240418-Tapecaria-Aveia" data-start="8" data-site-variant="home produtos"><img src="img/grid/20240418-Tapecaria-Aveia-9927.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20240419-Guaramao-0383.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="home"><img src="img/grid/20240427-Copa-Cozinha-0800.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20241106-Cozinha-Tupis-0612.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="gastronomia"><img src="img/grid/20241106-Cozinha-Tupis-0556.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4226.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4327.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4349.webp" loading="lazy"></div>
+      <div class="gallery-item" data-gallery="20250724-Forno-da-Saudade" data-start="3" data-site-variant="home gastronomia"><img src="img/grid/20250724-Forno-da-Saudade-4992.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20250724-Forno-da-Saudade" data-start="4" data-site-variant="home gastronomia"><img src="img/grid/20250724-Forno-da-Saudade-5044.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20250918-Cafe-Nice" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20250918-Cafe-Nice-7921.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20231006-Distribuidora-Goitacazes" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20231006-Distribuidora-Goitacazes-4504.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20251009-Hacienda-1979" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20251009-Hacienda-1979-8304.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20251114-Copa-Cozinha" data-start="9" data-site-variant="home gastronomia"><img src="img/grid/20251114-Copa-Cozinha-0410.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/Casa-Alvorada-0128.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/paodequeijo_bernardosilva_2024_001.webp" loading="lazy"></div>
+      <div class="gallery-item" data-site-variant="gastronomia"><img src="img/grid/paodequeijo_bernardosilva_2024_002.webp" loading="lazy"></div>
+      <div class="gallery-item" data-gallery="20240228-Casinha-do-Jura" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20240228-Casinha-do-Jura.webp" loading="lazy" decoding="async"></div>
+    </div>
+  </main>
+
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <span id="lightbox-close" aria-label="Fechar">&#x2715;</span>
+    <span id="lightbox-prev" aria-label="Anterior">&#8592;</span>
+    <div id="lightbox-track">
+      <img id="lightbox-prev-preview" class="lightbox-side-image" src="" alt="" aria-hidden="true">
+      <img id="lightbox-img" src="" alt="">
+      <img id="lightbox-next-preview" class="lightbox-side-image" src="" alt="" aria-hidden="true">
+    </div>
+    <span id="lightbox-next" aria-label="Próximo">&#8594;</span>
+  </div>
+
+  <canvas id="grain-canvas" aria-hidden="true"></canvas>
+
+  <script>
+    (function () {
+      const gallery = document.getElementById('gallery');
+      const pageTitle = document.querySelector('title');
+      const pageDescription = document.querySelector('meta[name="description"]');
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      const allGalleryItems = Array.from(gallery.children);
+
+      const siteConfigs = {
+        home: {
+          title: 'Bernardo Silva',
+          description: 'Fotografia de gastronomia por Bernardo Silva. Um olhar atento à matéria, à luz e à presença concreta das coisas.'
+        },
+        gastronomia: {
+          title: 'Bernardo Silva - Gastronomia',
+          description: 'Selecao de fotografia de gastronomia por Bernardo Silva. Imagens guiadas por luz, matéria, gesto e presença.'
+        },
+        produtos: {
+          title: 'Bernardo Silva - Produtos',
+          description: 'Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.'
+        }
+      };
+
+      function getSiteVariant() {
+        const params = new URLSearchParams(window.location.search);
+        const queryVariant = params.get('site');
+        const hostname = window.location.hostname.toLowerCase();
+        const pathname = window.location.pathname.toLowerCase();
+        const normalizedQuery = queryVariant ? queryVariant.toLowerCase() : '';
+
+        if (normalizedQuery === 'gastronomia' || normalizedQuery === 'gastro') return 'gastronomia';
+        if (normalizedQuery === 'produtos' || normalizedQuery === 'produto') return 'produtos';
+        if (hostname.startsWith('gastronomia.')) return 'gastronomia';
+        if (hostname.startsWith('produtos.')) return 'produtos';
+        if (pathname.includes('/gastronomia')) return 'gastronomia';
+        if (pathname.includes('/produtos')) return 'produtos';
+        return 'home';
+      }
+
+      const currentSiteVariant = getSiteVariant();
+
+      function applySiteMetadata() {
+        const config = siteConfigs[currentSiteVariant] || siteConfigs.home;
+
+        if (pageTitle) pageTitle.textContent = config.title;
+        if (pageDescription) pageDescription.setAttribute('content', config.description);
+        if (ogTitle) ogTitle.setAttribute('content', config.title);
+        if (ogDescription) ogDescription.setAttribute('content', config.description);
+        if (twitterTitle) twitterTitle.setAttribute('content', config.title);
+        if (twitterDescription) twitterDescription.setAttribute('content', config.description);
+      }
+
+      function itemMatchesVariant(item) {
+        if (currentSiteVariant === 'home') return true;
+        const variants = (item.dataset.siteVariant || 'home').split(/\s+/).filter(Boolean);
+        return variants.includes(currentSiteVariant);
+      }
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function shuffleGallery() {
+        const visibleItems = allGalleryItems.filter(itemMatchesVariant);
+        const shuffledItems = shuffleArray(Array.from(visibleItems));
+        const fragment = document.createDocumentFragment();
+
+        shuffledItems.forEach((item) => {
+          fragment.appendChild(item);
+        });
+
+        gallery.innerHTML = '';
+        gallery.appendChild(fragment);
+      }
+
+      applySiteMetadata();
+      shuffleGallery();
+
+      const overlay = document.getElementById('about-overlay');
+      const btnAbout = document.getElementById('nav-about-btn');
+      const btnClose = document.getElementById('nav-close-btn');
+      const navTitle = document.getElementById('nav-title');
+      const navTitleEchoA = document.getElementById('nav-title-echo-a');
+      const navTitleEchoB = document.getElementById('nav-title-echo-b');
+
+      function openAbout() {
+        overlay.classList.add('active');
+        btnAbout.style.display = 'none';
+        btnClose.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeAbout() {
+        overlay.classList.remove('active');
+        btnAbout.style.display = 'block';
+        btnClose.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      btnAbout.addEventListener('click', openAbout);
+      btnClose.addEventListener('click', closeAbout);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeAbout();
+        }
+      });
+
+      function resetNavTitleMotion() {
+        navTitle.classList.remove('is-active');
+        navTitle.style.transform = '';
+        navTitleEchoA.style.transform = '';
+        navTitleEchoB.style.transform = '';
+      }
+
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(pointer: fine)').matches) {
+        navTitle.addEventListener('pointermove', (e) => {
+          const rect = navTitle.getBoundingClientRect();
+          const offsetX = ((e.clientX - rect.left) / rect.width) - 0.5;
+          const offsetY = ((e.clientY - rect.top) / rect.height) - 0.5;
+          const shiftX = offsetX * 0.75;
+          const shiftY = offsetY * 0.18;
+          const skewX = offsetX * 3.2;
+
+          navTitle.classList.add('is-active');
+          navTitle.style.transform = `translate3d(${shiftX * 0.06}rem, 0, 0) skewX(${skewX * 0.08}deg)`;
+          navTitleEchoA.style.transform = `translate3d(${shiftX * -1.15}rem, ${shiftY * -1.1}rem, 0) skewX(${skewX * -0.14}deg)`;
+          navTitleEchoB.style.transform = `translate3d(${shiftX * 1.45}rem, ${shiftY * 1.2}rem, 0) skewX(${skewX * 0.18}deg)`;
+        });
+
+        navTitle.addEventListener('pointerleave', resetNavTitleMotion);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          closeAbout();
+        }
+      });
+
+      const projectGalleries = {
+        '20181111-Copa-Cozinha': [
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00002.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00005.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00006.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00009.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00010.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00013.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00017.webp',
+          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00043.webp'
+        ],
+        '20191009-Curamagoa': [
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941001.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941002.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941005.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941007.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941010.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941011.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941015.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7941033.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7942002.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7942011.webp',
+          'img/20191009-Curamagoa/20191009-Curamagoa-7942031.webp'
+        ],
+        '20191204-Cozinha-da-Vo-Ana': [
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0002.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0004.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0005.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0007.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0015.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0030.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0045.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0048.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0052.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0071.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0081.webp',
+          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0083.webp'
+        ],
+        '20200723-Forno-da-Saudade': [
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0001.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0004.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0010.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0011.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0018.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0022.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0031.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0038.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0041.webp',
+          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0043.webp'
+        ],
+        '20210528-Capim-Rosa': [
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4842.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4846.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4851.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4856.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4860.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4865.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4888.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4927.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4931.webp',
+          'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4934.webp'
+        ],
+        '20210906-Tapecaria-Aveia': [
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2153.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2172.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2179.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2192.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2193.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2196.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2201.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2230.webp',
+          'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2264.webp'
+        ],
+        '20230807-Tapecaria-Aveia': [
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3154.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3240.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3257.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3287.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3303.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3310.webp',
+          'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3321.webp'
+        ],
+        '20211126-Capim-Rosa': [
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2653.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2656.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2688.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2724.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2733.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2737.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-2748.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-7729.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-7734.webp',
+          'img/20211126-Capim-Rosa/20211126-Capim-Rosa-7746.webp'
+        ],
+        '20230613-Juramento-202': [
+          'img/20230613-Juramento-202/20230613-Juramento-202-2592.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2613.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2618.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2621.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2626.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2632.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2634.webp',
+          'img/20230613-Juramento-202/20230613-Juramento-202-2635.webp'
+        ],
+        '20231207-Cozinha-Tupis': [
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5842.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5848.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5850.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5859.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5865.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5869.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5887.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5940.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5961.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5974.webp',
+          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5975.webp'
+        ],
+        '20240308-Oficina-Paraiso': [
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7899.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7917.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7941.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7948.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7951.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8008.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8017.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8034.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8051.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8070.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8101.webp',
+          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8109.webp'
+        ],
+        '20240404-Juramento-202': [
+          'img/20240404-Juramento-202/20240404-Juramento-202-8670.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8673.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8679.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8683.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8689.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8694.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8697.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8700.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8704.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8708.webp',
+          'img/20240404-Juramento-202/20240404-Juramento-202-8718.webp'
+        ],
+        '20240418-Tapecaria-Aveia': [
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-0004.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9672.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9762.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9765.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9813.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9822.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9842.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9878.webp',
+          'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9927.webp'
+        ],
+        '20240228-Casinha-do-Jura': [
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-6996.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-6998.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7002.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7003.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7006.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7007.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7008.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7033.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7042.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7049.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7051.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7052.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7053.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7083.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7091.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7099.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7108.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7116.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7133.webp',
+          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7139.webp'
+        ],
+        '20231006-Distribuidora-Goitacazes': [
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4504.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4529.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4532.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4536.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4561.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4600.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4610.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4618.webp',
+          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4626.webp'
+        ],
+        '20250724-Forno-da-Saudade': [
+          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4593.webp',
+          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4771.webp',
+          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4977.webp',
+          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4990.webp',
+          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4993.webp'
+        ],
+        '20250918-Cafe-Nice': [
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7907.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7921.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7918.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7928.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8110.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8118.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8120.webp',
+          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8143.webp'
+        ],
+        '20251009-Hacienda-1979': [
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8301.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8304.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8312.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8327.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8335.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8357.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8360.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8374.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8396.webp',
+          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8422.webp'
+        ],
+        '20251114-Copa-Cozinha': [
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0165.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0201.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0212.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0216.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0225.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0235.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0237.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0279.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0321.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0410.webp',
+          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0414.webp'
+        ]
+      };
+
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbPrevPreview = document.getElementById('lightbox-prev-preview');
+      const lbNextPreview = document.getElementById('lightbox-next-preview');
+      const lbClose = document.getElementById('lightbox-close');
+      const lbPrev = document.getElementById('lightbox-prev');
+      const lbNext = document.getElementById('lightbox-next');
+      const lbTrack = document.getElementById('lightbox-track');
+      let currentGallery = [];
+      let current = 0;
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let openingAnimationFrame = null;
+      let openingTimeout = null;
+      let zoomProxy = null;
+      let deferSidePreviews = false;
+
+      function clearOpeningTimers() {
+        if (openingAnimationFrame) {
+          cancelAnimationFrame(openingAnimationFrame);
+          openingAnimationFrame = null;
+        }
+
+        if (openingTimeout) {
+          window.clearTimeout(openingTimeout);
+          openingTimeout = null;
+        }
+      }
+
+      function removeZoomProxy() {
+        if (!zoomProxy) return;
+        zoomProxy.remove();
+        zoomProxy = null;
+      }
+
+      function finishOpeningState() {
+        clearOpeningTimers();
+        deferSidePreviews = false;
+        updateSidePreviews();
+        lb.classList.remove('is-opening');
+        openingAnimationFrame = window.requestAnimationFrame(() => {
+          removeZoomProxy();
+        });
+      }
+
+      function getItemSrc(item) {
+        const image = item.querySelector('img');
+        return image.dataset.full || image.getAttribute('src');
+      }
+
+      function getGalleryFromItem(item) {
+        const galleryName = item.dataset.gallery;
+        if (galleryName && projectGalleries[galleryName]) {
+          return projectGalleries[galleryName];
+        }
+
+        return [getItemSrc(item)];
+      }
+
+      function updateSidePreviews() {
+        const hasMultipleImages = currentGallery.length > 1;
+        const prevIndex = (current - 1 + currentGallery.length) % currentGallery.length;
+        const nextIndex = (current + 1) % currentGallery.length;
+
+        if (deferSidePreviews || !hasMultipleImages) {
+          lbPrevPreview.src = '';
+          lbNextPreview.src = '';
+          lbPrevPreview.classList.add('is-hidden');
+          lbNextPreview.classList.add('is-hidden');
+          return;
+        }
+
+        lbPrevPreview.src = currentGallery[prevIndex];
+        lbNextPreview.src = currentGallery[nextIndex];
+        lbPrevPreview.classList.remove('is-hidden');
+        lbNextPreview.classList.remove('is-hidden');
+      }
+
+      function updateLightboxImage() {
+        lbImg.src = currentGallery[current];
+        updateSidePreviews();
+      }
+
+      function startConnectedOpenAnimation(item) {
+        const thumbImage = item.querySelector('img');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!thumbImage || prefersReducedMotion) {
+          openingAnimationFrame = window.requestAnimationFrame(() => {
+            openingAnimationFrame = window.requestAnimationFrame(finishOpeningState);
+          });
+          return;
+        }
+
+        const startRect = thumbImage.getBoundingClientRect();
+        if (!startRect.width || !startRect.height) {
+          openingAnimationFrame = window.requestAnimationFrame(() => {
+            openingAnimationFrame = window.requestAnimationFrame(finishOpeningState);
+          });
+          return;
+        }
+
+        removeZoomProxy();
+
+        zoomProxy = document.createElement('img');
+        zoomProxy.className = 'lightbox-zoom-proxy';
+        zoomProxy.src = thumbImage.currentSrc || thumbImage.src;
+        zoomProxy.alt = '';
+        zoomProxy.style.left = `${startRect.left}px`;
+        zoomProxy.style.top = `${startRect.top}px`;
+        zoomProxy.style.width = `${startRect.width}px`;
+        zoomProxy.style.height = `${startRect.height}px`;
+        document.body.appendChild(zoomProxy);
+
+        const runAnimation = () => {
+          const targetRect = lbImg.getBoundingClientRect();
+
+          if (!targetRect.width || !targetRect.height) {
+            finishOpeningState();
+            return;
+          }
+
+          zoomProxy.addEventListener('transitionend', finishOpeningState, { once: true });
+
+          openingTimeout = window.setTimeout(() => {
+            finishOpeningState();
+          }, 700);
+
+          openingAnimationFrame = window.requestAnimationFrame(() => {
+            zoomProxy.style.left = `${targetRect.left}px`;
+            zoomProxy.style.top = `${targetRect.top}px`;
+            zoomProxy.style.width = `${targetRect.width}px`;
+            zoomProxy.style.height = `${targetRect.height}px`;
+          });
+        };
+
+        if (lbImg.complete && lbImg.naturalWidth) {
+          runAnimation();
+          return;
+        }
+
+        lbImg.addEventListener('load', runAnimation, { once: true });
+      }
+
+      function openLB(item) {
+        const startIndex = Number.parseInt(item.dataset.start || '0', 10);
+        currentGallery = getGalleryFromItem(item);
+        current = Number.isNaN(startIndex)
+          ? 0
+          : Math.max(0, Math.min(startIndex, currentGallery.length - 1));
+        deferSidePreviews = true;
+        updateLightboxImage();
+        clearOpeningTimers();
+        lb.classList.add('is-opening');
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        startConnectedOpenAnimation(item);
+      }
+
+      function closeLB() {
+        finishOpeningState();
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbPrevPreview.src = '';
+        lbNextPreview.src = '';
+        currentGallery = [];
+        deferSidePreviews = false;
+      }
+
+      function prevLB() {
+        if (!currentGallery.length) return;
+        current = (current - 1 + currentGallery.length) % currentGallery.length;
+        updateLightboxImage();
+      }
+
+      function nextLB() {
+        if (!currentGallery.length) return;
+        current = (current + 1) % currentGallery.length;
+        updateLightboxImage();
+      }
+
+      items.forEach((item) => {
+        item.addEventListener('click', () => openLB(item));
+      });
+
+      lbClose.addEventListener('click', closeLB);
+      lbPrevPreview.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevLB();
+      });
+      lbNextPreview.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextLB();
+      });
+      lbPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevLB();
+      });
+      lbNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextLB();
+      });
+
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) {
+          closeLB();
+        }
+      });
+
+      lbTrack.addEventListener('touchstart', (e) => {
+        if (!lb.classList.contains('active') || !e.touches.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      lbTrack.addEventListener('touchend', (e) => {
+        if (!lb.classList.contains('active') || !e.changedTouches.length) return;
+
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        const deltaY = e.changedTouches[0].clientY - touchStartY;
+        const swipeThreshold = 40;
+
+        if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaX) <= Math.abs(deltaY)) {
+          return;
+        }
+
+        if (deltaX < 0) {
+          nextLB();
+          return;
+        }
+
+        prevLB();
+      }, { passive: true });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLB();
+        if (e.key === 'ArrowLeft') prevLB();
+        if (e.key === 'ArrowRight') nextLB();
+      });
+
+      const grainCanvas = document.getElementById('grain-canvas');
+      const grainCtx = grainCanvas.getContext('2d', { alpha: true });
+
+      function resizeGrainCanvas() {
+        grainCanvas.width = window.innerWidth;
+        grainCanvas.height = window.innerHeight;
+      }
+
+      function drawGrain() {
+        const width = grainCanvas.width;
+        const height = grainCanvas.height;
+        const imageData = grainCtx.createImageData(width, height);
+        const buffer = imageData.data;
+
+        for (let i = 0; i < buffer.length; i += 4) {
+          const noise = Math.random() * 255;
+          const alpha = Math.random() > 0.55 ? 95 : 35;
+
+          buffer[i] = noise;
+          buffer[i + 1] = noise;
+          buffer[i + 2] = noise;
+          buffer[i + 3] = alpha;
+        }
+
+        grainCtx.putImageData(imageData, 0, 0);
+      }
+
+      resizeGrainCanvas();
+      drawGrain();
+
+      window.addEventListener('resize', () => {
+        resizeGrainCanvas();
+        drawGrain();
+      });
+
+      setInterval(drawGrain, 65);
+    })();
+  </script>
+</body>
+</html>

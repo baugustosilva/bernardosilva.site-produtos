@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>bom dia, kênia</title>
+  <meta name="description" content="saudade tem nome">
+  <link rel="icon" type="image/webp" href="../../../img/icon-bernardosilva.webp">
+  <link rel="preconnect" href="https://type.cargo.site" crossorigin>
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: "Monument Grotesk Variable";
+      src: url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff2") format("woff2-variations"),
+           url("https://type.cargo.site/files/CargoMonumentGroteskPlusVariable.woff") format("woff");
+      font-style: normal;
+      font-weight: 200 1000;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      font-size: 62.5%;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      --brand-color: #000000;
+      --site-gutter-left: 8rem;
+      --site-gutter-right: 8rem;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: rgba(255, 255, 255, 0.72);
+      color: var(--brand-color);
+      font-family: "Monument Grotesk Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-variation-settings: "slnt" 0, "MONO" 0;
+      overflow-x: hidden;
+    }
+
+    body:not(.is-unlocked) #nav,
+    body:not(.is-unlocked) #post-wrap,
+    body:not(.is-unlocked) #grain-canvas {
+      display: none;
+    }
+
+    img,
+    video {
+      border: 0;
+      padding: 0;
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3.2rem;
+      background-color: rgba(255, 255, 255, 0.72);
+    }
+
+    body.is-unlocked #password-gate {
+      display: none;
+    }
+
+    .password-form {
+      width: min(100%, 34rem);
+    }
+
+    .password-form input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid currentColor;
+      border-radius: 0;
+      padding: 0 0 0.6rem;
+      background: transparent;
+      color: var(--brand-color);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-align: center;
+      outline: none;
+    }
+
+    .password-form input::placeholder {
+      color: currentColor;
+      opacity: 0.42;
+    }
+
+    .password-error {
+      min-height: 1.2em;
+      margin: 1.2rem 0 0;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .password-error.is-visible {
+      opacity: 1;
+    }
+
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    #nav-inner {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 3.5rem;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 2.4rem;
+      pointer-events: none;
+    }
+
+    #nav-title {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      opacity: 0.05;
+      pointer-events: auto;
+      transition: transform 0.16s ease;
+      will-change: transform;
+    }
+
+    #nav-title:hover,
+    #nav-title.is-active {
+      opacity: 1;
+    }
+
+    #nav-title-mini {
+      position: absolute;
+      left: 50%;
+      top: 3.5rem;
+      transform: translateX(-50%);
+      width: min(42vw, 29.4rem);
+      min-width: 21rem;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    #nav-title-mini img {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    #nav-title:hover ~ #nav-title-mini,
+    #nav-title.is-active ~ #nav-title-mini {
+      opacity: 0;
+    }
+
+    #nav-title-text,
+    .nav-title-echo {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    #nav-title-text {
+      z-index: 3;
+    }
+
+    #nav-title img,
+    .nav-title-echo {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .nav-title-echo {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: center center;
+      mix-blend-mode: multiply;
+      transition: transform 0.16s ease, opacity 0.16s ease, filter 0.16s ease;
+    }
+
+    #nav-title-echo-a {
+      z-index: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title-echo-b {
+      z-index: 2;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #nav-title.is-active #nav-title-echo-a {
+      opacity: 0.24;
+      filter: blur(0.35px);
+    }
+
+    #nav-title.is-active #nav-title-echo-b {
+      opacity: 0.16;
+      filter: blur(0.7px);
+    }
+
+    #post-wrap {
+      padding-top: 113.775px;
+      padding-left: var(--site-gutter-left);
+      padding-right: var(--site-gutter-right);
+      padding-bottom: 8rem;
+    }
+
+    .post-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .post-cover {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      margin-bottom: 6.4rem;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .post-cover img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .post-text {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      text-align: justify;
+      text-transform: lowercase;
+    }
+
+    .post-text::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .post-text p {
+      margin: 0 0 1.4em;
+    }
+
+    .post-date {
+      text-align: right;
+    }
+
+    .post-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    #grain-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0.42;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        --site-gutter-left: 3.2rem;
+        --site-gutter-right: 3.2rem;
+      }
+
+      #nav-inner {
+        padding-top: 1.6rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        padding-bottom: 2rem;
+      }
+
+      #nav-title-mini {
+        display: none;
+      }
+
+      #nav-title {
+        width: 100%;
+        opacity: 1;
+      }
+
+      #post-wrap {
+        padding-top: 113.775px;
+      }
+
+      .post-cover {
+        margin-bottom: 5.6rem;
+      }
+
+      .post-text {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="password-gate" role="dialog" aria-modal="true" aria-label="acesso">
+    <form class="password-form" id="password-form">
+      <input id="password-input" type="password" autocomplete="off" placeholder="senha" aria-label="senha">
+      <p class="password-error" id="password-error">senha incorreta</p>
+    </form>
+  </div>
+
+  <nav id="nav" aria-label="saudade tem nome">
+    <div id="nav-inner">
+      <a id="nav-title" href="../../" aria-label="saudade tem nome">
+        <img id="nav-title-echo-a" class="nav-title-echo" src="../../img/saudade-titulo.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-echo-b" class="nav-title-echo" src="../../img/saudade-titulo.png" alt="" aria-hidden="true" draggable="false">
+        <img id="nav-title-text" src="../../img/saudade-titulo.png" alt="saudade tem nome" draggable="false">
+      </a>
+      <div id="nav-title-mini" aria-hidden="true">
+        <img src="../../img/saudade-titulo.png" alt="" draggable="false">
+      </div>
+    </div>
+  </nav>
+
+  <main id="post-wrap" aria-label="bom dia, kênia">
+    <article class="post-shell">
+      <div class="post-cover">
+        <img src="../../img/posts/bom-dia-kenia.jpg" alt="" loading="eager" decoding="async">
+      </div>
+
+      <div class="post-text">
+        <p>bom dia, kênia.</p>
+        <p>o relógio marca cinco horas e alguns minutos. essa coisa de ponteiro não é de todo o meu forte, principalmente quando o número é de desenho.</p>
+        <p>o que eu não entendo de ponteiro, eu tenho entendido de ritmo. porque o peito ta batendo até do lado avesso. pra minha sorte, parece que ta tudo bem; pelo menos perante a ciência. e tem batido tão forte, que da pra sentir a costela.. que eu nem contei, mas tava quebrada até esses dias pra trás!</p>
+        <p>kênia reestabeleceu o significado do sorriso. eu não sabia que dava pra rir com o corpo todo. e hoje à tarde eu chorei de saudade; com o corpo todo também.</p>
+        <p>na terça o relógio gritou com força, perto das quatro e alguma coisa. e eu nunca me senti tão importante quando ela levantou da cama pra me assistir enquanto eu calçava calçado num chão frio. antes das cinco.</p>
+        <p>se um dia eu precisasse escolher ser um animal, eu jamais hesitaria em ser uma baleia. jubarte, provavelmente. e hoje eu acho que talvez, pr’eu poder dividir com kênia o teu habitat favorito.</p>
+        <p>ontem eu sentei pra ver o sol nascendo, no meio da montanha, do frio, e da saudade; e descobri que olhar no fundo to teu olho é tão ou mais confortável que olhar para o fundo do olho da montanha, iluminada com a primeira luz do dia. e ver kênia despertar é ainda mais bonito. me desculpa, dia.</p>
+        <p>e desde que o bom dia foi inventado, um bom dia nunca foi tão potente.</p>
+        <p>bom-dia<br>substantivo masculino</p>
+        <p>1. cumprimento que se dirige a alguém na parte da manhã (tb. us. no pl.). "cumprimentou-o com um b. caloroso"</p>
+        <p>2. design. comum a algumas trepadeiras da fam. das convolvuláceas, cujas flores se abrem de dia e se fecham à noite; bela-de-dia.</p>
+        <p>3. a flor dessas plantas.</p>
+        <p>4. declaração de amor extenso, com forças que talvez não soubesse que existia.</p>
+      </div>
+    </article>
+  </main>
+
+  <canvas id="grain-canvas" aria-hidden="true"></canvas>
+
+  <script>
+    (function () {
+      const gateKey = 'saudade-tem-nome-unlocked';
+      const password = 'bom dia';
+      const passwordForm = document.getElementById('password-form');
+      const passwordInput = document.getElementById('password-input');
+      const passwordError = document.getElementById('password-error');
+      const notificationEndpoint = 'https://formspree.io/f/xdabdrzz';
+
+      function unlockPage() {
+        sessionStorage.setItem(gateKey, 'true');
+        document.body.classList.add('is-unlocked');
+      }
+
+      function notifyAccess() {
+        fetch(notificationEndpoint, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            subject: 'acesso saudade tem nome',
+            page: window.location.href,
+            path: window.location.pathname,
+            userAgent: navigator.userAgent,
+            accessedAt: new Date().toISOString()
+          })
+        }).catch(() => {});
+      }
+
+      if (sessionStorage.getItem(gateKey) === 'true') {
+        document.body.classList.add('is-unlocked');
+      } else {
+        window.requestAnimationFrame(() => passwordInput.focus());
+      }
+
+      passwordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (passwordInput.value.trim().toLowerCase() === password) {
+          notifyAccess();
+          unlockPage();
+          return;
+        }
+
+        passwordError.classList.add('is-visible');
+        passwordInput.value = '';
+        passwordInput.focus();
+      });
+
+      const navTitle = document.getElementById('nav-title');
+      const navTitleEchoA = document.getElementById('nav-title-echo-a');
+      const navTitleEchoB = document.getElementById('nav-title-echo-b');
+
+      function resetNavTitleMotion() {
+        navTitle.classList.remove('is-active');
+        navTitle.style.transform = '';
+        navTitleEchoA.style.transform = '';
+        navTitleEchoB.style.transform = '';
+      }
+
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(pointer: fine)').matches) {
+        navTitle.addEventListener('pointermove', (e) => {
+          const rect = navTitle.getBoundingClientRect();
+          const offsetX = ((e.clientX - rect.left) / rect.width) - 0.5;
+          const offsetY = ((e.clientY - rect.top) / rect.height) - 0.5;
+          const shiftX = offsetX * 0.75;
+          const shiftY = offsetY * 0.18;
+          const skewX = offsetX * 3.2;
+
+          navTitle.classList.add('is-active');
+          navTitle.style.transform = `translate3d(${shiftX * 0.06}rem, 0, 0) skewX(${skewX * 0.08}deg)`;
+          navTitleEchoA.style.transform = `translate3d(${shiftX * -1.15}rem, ${shiftY * -1.1}rem, 0) skewX(${skewX * -0.14}deg)`;
+          navTitleEchoB.style.transform = `translate3d(${shiftX * 1.45}rem, ${shiftY * 1.2}rem, 0) skewX(${skewX * 0.18}deg)`;
+        });
+
+        navTitle.addEventListener('pointerleave', resetNavTitleMotion);
+      }
+
+      const grainCanvas = document.getElementById('grain-canvas');
+      const grainCtx = grainCanvas.getContext('2d', { alpha: true });
+
+      function resizeGrainCanvas() {
+        grainCanvas.width = window.innerWidth;
+        grainCanvas.height = window.innerHeight;
+      }
+
+      function drawGrain() {
+        const width = grainCanvas.width;
+        const height = grainCanvas.height;
+        const imageData = grainCtx.createImageData(width, height);
+        const buffer = imageData.data;
+
+        for (let i = 0; i < buffer.length; i += 4) {
+          const noise = Math.random() * 255;
+          const alpha = Math.random() > 0.55 ? 95 : 35;
+
+          buffer[i] = noise;
+          buffer[i + 1] = noise;
+          buffer[i + 2] = noise;
+          buffer[i + 3] = alpha;
+        }
+
+        grainCtx.putImageData(imageData, 0, 0);
+      }
+
+      resizeGrainCanvas();
+      drawGrain();
+
+      window.addEventListener('resize', () => {
+        resizeGrainCanvas();
+        drawGrain();
+      });
+    })();
+  </script>
+</body>
+</html>
