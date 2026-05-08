@@ -294,6 +294,41 @@
       padding-bottom: 2rem;
     }
 
+    #site-footer {
+      padding: 0 var(--site-gutter-right) 2rem var(--site-gutter-left);
+    }
+
+    .site-footer-nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-footer-link {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.62;
+      transition: opacity 0.2s ease, font-size 0.2s ease;
+    }
+
+    .site-footer-link:hover,
+    .site-footer-link:focus-visible {
+      opacity: 1;
+    }
+
+    .site-footer-link.is-active {
+      font-weight: 700;
+      font-size: 1.08em;
+      opacity: 1;
+    }
+
     .gallery-grid {
       columns: 7;
       column-gap: 80px;
@@ -637,6 +672,14 @@
     </div>
   </main>
 
+  <footer id="site-footer" aria-label="Categorias">
+    <nav class="site-footer-nav">
+      <a class="site-footer-link" data-footer-variant="gastronomia" href="https://gastronomia.bernardosilva.site/">gastronomia</a>
+      <a class="site-footer-link" data-footer-variant="produtos" href="https://produtos.bernardosilva.site/">produtos</a>
+      <a class="site-footer-link" data-footer-variant="home" href="https://www.bernardosilva.site/">acervos</a>
+    </nav>
+  </footer>
+
   <div id="lightbox" role="dialog" aria-modal="true">
     <span id="lightbox-close" aria-label="Fechar">&#x2715;</span>
     <span id="lightbox-prev" aria-label="Anterior">&#8592;</span>
@@ -693,6 +736,19 @@
       }
 
       const currentSiteVariant = getSiteVariant();
+      const footerLinks = Array.from(document.querySelectorAll('#site-footer [data-footer-variant]'));
+
+      function applyFooterNavState() {
+        footerLinks.forEach((link) => {
+          const isActive = link.dataset.footerVariant === currentSiteVariant;
+          link.classList.toggle('is-active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
 
       function applySiteMetadata() {
         const config = siteConfigs[currentSiteVariant] || siteConfigs.home;
@@ -733,6 +789,7 @@
       }
 
       applySiteMetadata();
+      applyFooterNavState();
       shuffleGallery();
 
       const overlay = document.getElementById('about-overlay');
