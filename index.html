@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <title>Bernardo Silva - Produtos</title>
-  <meta name="description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens construidas com rigor, matéria e presença.">
+  <meta name="description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bernardo Silva">
   <meta property="og:title" content="Bernardo Silva - Produtos">
-  <meta property="og:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens construidas com rigor, matéria e presença.">
+  <meta property="og:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
   <meta property="og:url" content="https://produtos.bernardosilva.site/">
   <meta property="og:image" content="https://www.bernardosilva.site/img/og-bernardosilva.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bernardo Silva - fotografia de gastronomia">
+  <meta property="og:image:alt" content="Bernardo Silva - fotografia de produtos">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bernardo Silva - Produtos">
-  <meta name="twitter:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens construidas com rigor, matéria e presença.">
+  <meta name="twitter:description" content="Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.">
   <meta name="twitter:image" content="https://www.bernardosilva.site/img/og-bernardosilva.jpg">
   <link rel="icon" type="image/webp" href="img/icon-bernardosilva.webp">
   <link rel="preconnect" href="https://type.cargo.site" crossorigin>
@@ -111,6 +111,11 @@
       will-change: transform;
     }
 
+    #nav-title:focus,
+    #nav-title:focus-visible {
+      outline: none;
+    }
+
     #nav-title:hover,
     #nav-title.is-active {
       opacity: 1;
@@ -195,9 +200,10 @@
     #nav-about-btn,
     #nav-close-btn {
       pointer-events: auto;
-      position: absolute;
-      top: 3rem;
-      right: 10rem;
+      position: static;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-family: Helvetica, Arial, sans-serif;
       font-size: 2.3rem;
       font-weight: 700;
@@ -209,6 +215,7 @@
       border: none;
       padding: 0;
       line-height: 1;
+      flex: 0 0 auto;
     }
 
     #nav-close-btn { display: none; }
@@ -295,15 +302,21 @@
     }
 
     #site-footer {
-      padding: 0 var(--site-gutter-right) 2rem var(--site-gutter-left);
+      padding: 0 var(--site-gutter-right) 3.4rem var(--site-gutter-left);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .site-footer-nav {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.8rem;
       flex-wrap: wrap;
+      min-height: 3rem;
       font-family: Helvetica, Arial, sans-serif;
       font-size: 1rem;
       font-weight: 400;
@@ -312,9 +325,14 @@
     }
 
     .site-footer-link {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      top: 0.08em;
       color: inherit;
       text-decoration: none;
       opacity: 0.62;
+      line-height: 1;
       transition: opacity 0.2s ease, font-size 0.2s ease;
     }
 
@@ -327,6 +345,17 @@
       font-weight: 700;
       font-size: 1.08em;
       opacity: 1;
+    }
+
+    .site-footer-about {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      margin-left: 0.6rem;
+      flex: 0 0 auto;
+      line-height: 1;
+      position: relative;
+      top: 0.08em;
     }
 
     .gallery-grid {
@@ -354,6 +383,356 @@
 
     .gallery-item:hover img {
       transform: scale(1.03);
+    }
+
+    body[data-grid-mode="editorial"] #gallery-wrap {
+      padding-top: 124px;
+    }
+
+    body[data-grid-mode="editorial"] .gallery-grid {
+      columns: 5;
+      column-gap: 64px;
+      max-width: 1760px;
+      margin: 0 auto;
+    }
+
+    body[data-grid-mode="editorial"] .gallery-item {
+      margin-bottom: 92px;
+    }
+
+    body[data-grid-mode="editorial"] .gallery-item:nth-child(4n + 2) {
+      margin-top: 2.4rem;
+    }
+
+    body[data-grid-mode="premium"] #gallery-wrap {
+      padding-top: 130px;
+    }
+
+    body[data-grid-mode="premium"] .gallery-grid {
+      columns: 4;
+      column-gap: 96px;
+      max-width: 1640px;
+      margin: 0 auto;
+    }
+
+    body[data-grid-mode="premium"] .gallery-item {
+      margin-bottom: 112px;
+    }
+
+    body[data-grid-mode="premium"] .gallery-item img {
+      transform: none;
+    }
+
+    body[data-grid-mode="impacto"] #gallery-wrap {
+      padding-top: 122px;
+    }
+
+    body[data-grid-mode="impacto"] .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      gap: 56px;
+      max-width: 1880px;
+      margin: 0 auto;
+      columns: unset;
+    }
+
+    body[data-grid-mode="impacto"] .gallery-item {
+      grid-column: span 4;
+      margin-bottom: 0;
+    }
+
+    body[data-grid-mode="impacto"] .gallery-item:nth-child(7n + 1) {
+      grid-column: span 6;
+    }
+
+    body[data-grid-mode="impacto"] .gallery-item:nth-child(9n + 4) {
+      grid-column: span 5;
+    }
+
+    body[data-grid-mode="impacto"] .gallery-item:nth-child(11n + 6) {
+      grid-column: span 7;
+    }
+
+    body[data-grid-mode="justificado"] #gallery-wrap {
+      padding-top: 122px;
+    }
+
+    body[data-grid-mode="justificado"] .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      gap: 18px;
+      max-width: 1760px;
+      margin: 0 auto;
+      columns: unset;
+    }
+
+    body[data-grid-mode="justificado"] .gallery-item {
+      flex: none;
+      margin: 0;
+      height: 320px;
+    }
+
+    body[data-grid-mode="justificado"] .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: none;
+    }
+
+    body[data-grid-mode="lateral"] {
+      overflow: hidden;
+      --lateral-gap: 10px;
+      --lateral-bottom-breath: 58px;
+      --lateral-top-offset: 113.775px;
+      --lateral-tile-size: calc(100vh - var(--lateral-top-offset) - var(--lateral-bottom-breath));
+    }
+
+    body[data-grid-mode="lateral"] #gallery-wrap {
+      box-sizing: border-box;
+      height: 100vh;
+      padding-top: var(--lateral-top-offset);
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: var(--lateral-bottom-breath);
+      overflow: hidden;
+    }
+
+    body[data-grid-mode="lateral"] #site-footer {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      left: 0;
+      right: 0;
+      bottom: 1.2rem;
+      padding: 0 var(--site-gutter-right) 0 var(--site-gutter-left);
+      min-height: 3.4rem;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    body[data-grid-mode="lateral"] .site-footer-nav {
+      pointer-events: auto;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-grid {
+      position: relative;
+      height: var(--lateral-tile-size);
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0;
+      overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+      columns: unset;
+    }
+
+    body[data-grid-mode="lateral"] .lateral-track {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      height: 100%;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    body[data-grid-mode="lateral"] .lateral-row-track {
+      display: flex;
+      gap: var(--lateral-gap);
+      height: 100%;
+      width: max-content;
+      align-self: flex-start;
+      will-change: transform;
+    }
+
+    body[data-grid-mode="lateral"] .lateral-segment {
+      display: flex;
+      align-items: stretch;
+      gap: var(--lateral-gap);
+      height: 100%;
+      width: max-content;
+      flex: none;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item {
+      margin: 0;
+      width: calc(var(--lateral-tile-size) * 0.6666667);
+      height: 100%;
+      flex: none;
+      overflow: hidden;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item[data-lateral-shape="horizontal"] {
+      width: calc(var(--lateral-tile-size) * 1.5);
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item[data-lateral-shape="vertical"] {
+      width: calc(var(--lateral-tile-size) * 0.6666667);
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: none;
+    }
+
+    body[data-site-variant="produtos"][data-grid-mode="lateral"] .gallery-item {
+      display: flex;
+      align-items: stretch;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    body[data-site-variant="produtos"][data-grid-mode="lateral"] .gallery-item[data-lateral-shape="horizontal"],
+    body[data-site-variant="produtos"][data-grid-mode="lateral"] .gallery-item[data-lateral-shape="vertical"] {
+      width: auto;
+    }
+
+    body[data-site-variant="produtos"][data-grid-mode="lateral"] .gallery-item img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item {
+      position: relative;
+    }
+
+    .lateral-caption {
+      display: none;
+    }
+
+    body[data-grid-mode="lateral"] .lateral-caption {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: calc(100% - 28px);
+      transform: rotate(180deg);
+      transform-origin: center center;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(1rem, 1.05vw, 1.28rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.96);
+      z-index: 2;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item[data-caption-tone="dark"] .lateral-caption {
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    body[data-grid-mode="lateral"] .lateral-caption-char {
+      display: block;
+      line-height: 0.9;
+      transform: rotate(90deg);
+      transform-origin: center center;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item.has-gallery::before,
+    body[data-grid-mode="lateral"] .gallery-item.has-gallery::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item.has-gallery::before {
+      right: 16px;
+      bottom: 16px;
+      border: 1.2px solid rgba(255, 255, 255, 0.96);
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    body[data-grid-mode="lateral"] .gallery-item.has-gallery::after {
+      right: 12px;
+      bottom: 12px;
+      border: 1.2px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    body[data-gallery-icon="rings"] .gallery-item.has-gallery .gallery-icon-rings-third {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 18px;
+      height: 18px;
+      border: 1.2px solid rgba(255, 255, 255, 0.78);
+      border-radius: 999px;
+      box-sizing: border-box;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    body[data-gallery-icon="pulse"] .gallery-item.has-gallery::before {
+      width: 12px;
+      height: 12px;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      border: none;
+    }
+
+    body[data-gallery-icon="pulse"] .gallery-item.has-gallery::after {
+      width: 24px;
+      height: 24px;
+      right: 12px;
+      bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: transparent;
+    }
+
+    body[data-gallery-icon="orbit"] .gallery-item.has-gallery::before {
+      width: 18px;
+      height: 18px;
+      right: 16px;
+      bottom: 16px;
+      border: 1.2px solid rgba(255, 255, 255, 0.96);
+      background: transparent;
+    }
+
+    body[data-gallery-icon="orbit"] .gallery-item.has-gallery::after {
+      width: 6px;
+      height: 6px;
+      right: 10px;
+      bottom: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    body[data-gallery-icon="coin"] .gallery-item.has-gallery::before {
+      width: 18px;
+      height: 18px;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    body[data-gallery-icon="coin"] .gallery-item.has-gallery::after {
+      width: 6px;
+      height: 6px;
+      right: 22px;
+      bottom: 22px;
+      border: none;
+      background: rgba(255, 255, 255, 0.96);
     }
 
     #lightbox {
@@ -455,7 +834,6 @@
       width: auto;
       height: var(--lightbox-main-height);
       max-width: 84vw;
-      justify-self: center;
       transform: scale(1);
       transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -467,6 +845,31 @@
     #lightbox #lightbox-img {
       pointer-events: auto;
       cursor: default;
+    }
+
+    .lightbox-main {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      min-width: 0;
+    }
+
+    #lightbox-caption {
+      position: absolute;
+      top: calc(100% + 2.9rem);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(1rem, 1.05vw, 1.28rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+      text-align: center;
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
     }
 
     #lightbox-close {
@@ -525,10 +928,58 @@
 
     @media (max-width: 1200px) {
       .gallery-grid { columns: 5; }
+      body[data-grid-mode="editorial"] .gallery-grid { columns: 4; }
+      body[data-grid-mode="premium"] .gallery-grid { columns: 3; column-gap: 72px; }
+      body[data-grid-mode="premium"] .gallery-item { margin-bottom: 92px; }
+      body[data-grid-mode="impacto"] .gallery-grid {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 44px;
+      }
+      body[data-grid-mode="impacto"] .gallery-item { grid-column: span 4; }
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(7n + 1),
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(9n + 4),
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(11n + 6) {
+        grid-column: span 4;
+      }
+      body[data-grid-mode="justificado"] .gallery-grid {
+        gap: 16px;
+        max-width: 1640px;
+      }
+      body[data-grid-mode="justificado"] .gallery-item {
+        height: 290px;
+      }
+      body[data-grid-mode="lateral"] .gallery-grid {
+        --lateral-gap: 10px;
+        --lateral-bottom-breath: 34px;
+      }
     }
 
     @media (max-width: 900px) {
       .gallery-grid { columns: 4; }
+      body[data-grid-mode="editorial"] .gallery-grid { columns: 3; column-gap: 48px; }
+      body[data-grid-mode="editorial"] .gallery-item { margin-bottom: 68px; }
+      body[data-grid-mode="premium"] .gallery-grid { columns: 2; column-gap: 52px; }
+      body[data-grid-mode="premium"] .gallery-item { margin-bottom: 72px; }
+      body[data-grid-mode="impacto"] .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 36px;
+      }
+      body[data-grid-mode="impacto"] .gallery-item,
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(7n + 1),
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(9n + 4),
+      body[data-grid-mode="impacto"] .gallery-item:nth-child(11n + 6) {
+        grid-column: span 1;
+      }
+      body[data-grid-mode="justificado"] .gallery-grid {
+        gap: 14px;
+      }
+      body[data-grid-mode="justificado"] .gallery-item {
+        height: 230px;
+      }
+      body[data-grid-mode="lateral"] .gallery-grid {
+        --lateral-gap: 8px;
+        --lateral-bottom-breath: 28px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -538,6 +989,50 @@
       }
       .gallery-grid { columns: 2; column-gap: 80px; }
       .gallery-item { margin-bottom: 80px; }
+      body[data-grid-mode="editorial"] .gallery-grid,
+      body[data-grid-mode="premium"] .gallery-grid {
+        columns: 2;
+        column-gap: 36px;
+      }
+      body[data-grid-mode="editorial"] .gallery-item,
+      body[data-grid-mode="premium"] .gallery-item {
+        margin-bottom: 44px;
+      }
+      body[data-grid-mode="impacto"] .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      body[data-grid-mode="justificado"] .gallery-grid {
+        gap: 12px;
+      }
+      body[data-grid-mode="justificado"] .gallery-item {
+        height: 168px;
+      }
+      body[data-grid-mode="lateral"] {
+        overflow: auto;
+      }
+      body[data-grid-mode="lateral"] #gallery-wrap {
+        height: auto;
+        padding-top: 113.775px;
+        display: block;
+        overflow: visible;
+      }
+      body[data-grid-mode="lateral"] .gallery-grid {
+        display: block;
+        width: 100%;
+        overflow: visible;
+        columns: 2;
+        column-gap: 36px;
+      }
+      body[data-grid-mode="lateral"] .gallery-item {
+        height: auto;
+        width: auto;
+        margin-bottom: 44px;
+      }
+      body[data-grid-mode="lateral"] .gallery-item img {
+        width: 100%;
+        height: auto;
+      }
       #nav-inner {
         padding-top: 1.6rem;
         padding-left: var(--site-gutter-left);
@@ -546,10 +1041,6 @@
       }
       #nav-about-btn,
       #nav-close-btn {
-        top: auto;
-        bottom: 0rem;
-        right: 2.4rem;
-        transform: none;
         font-size: 1.4rem;
       }
       #nav-title-mini {
@@ -580,6 +1071,26 @@
         --site-gutter-right: 8rem;
       }
       .gallery-grid { columns: 2; }
+      body[data-grid-mode="editorial"] .gallery-grid,
+      body[data-grid-mode="premium"] .gallery-grid {
+        column-gap: 28px;
+      }
+      body[data-grid-mode="editorial"] .gallery-item,
+      body[data-grid-mode="premium"] .gallery-item {
+        margin-bottom: 34px;
+      }
+      body[data-grid-mode="justificado"] .gallery-grid {
+        gap: 10px;
+      }
+      body[data-grid-mode="justificado"] .gallery-item {
+        height: 138px;
+      }
+      body[data-grid-mode="lateral"] .gallery-grid {
+        column-gap: 28px;
+      }
+      body[data-grid-mode="lateral"] .gallery-item {
+        margin-bottom: 34px;
+      }
       #lightbox {
         --lightbox-main-height: 50vh;
       }
@@ -596,8 +1107,6 @@
       }
       #nav-about-btn,
       #nav-close-btn {
-        bottom: 0.05rem;
-        right: 2.4rem;
         font-size: 1.25rem;
       }
     }
@@ -619,8 +1128,6 @@
       <div id="nav-title-mini" aria-hidden="true">
         <img src="img/logo-bernardosilva_new.png" alt="" draggable="false">
       </div>
-      <button id="nav-about-btn" aria-label="Abrir sobre">about</button>
-      <button id="nav-close-btn" aria-label="Fechar sobre">close</button>
     </div>
   </nav>
 
@@ -636,39 +1143,12 @@
 
   <main id="gallery-wrap">
     <div class="gallery-grid" id="gallery">
-      <div class="gallery-item" data-site-variant="home"><img src="img/grid/1985.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20191009-Curamagoa" data-start="10" data-site-variant="home gastronomia"><img src="img/grid/20191009-Curamagoa-7942031.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20210906-Tapecaria-Aveia" data-start="0" data-site-variant="home produtos"><img src="img/grid/20210906-Tapecaria-Aveia-2148.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-site-variant="home"><img src="img/grid/20220901-Enquanto0446.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20230807-Tapecaria-Aveia" data-start="2" data-site-variant="home produtos"><img src="img/grid/20230807-Tapecaria-Aveia-3258.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20181111-Copa-Cozinha" data-start="2" data-site-variant="home gastronomia"><img src="img/grid/20181111-Copa-Cozinha-00006.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20191204-Cozinha-da-Vo-Ana" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20191204-Cozinha-da-Vo-Ana-0004.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20200723-Forno-da-Saudade" data-start="3" data-site-variant="home gastronomia"><img src="img/grid/20200723-Forno-da-Saudade-0011.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20210528-Capim-Rosa" data-start="4" data-site-variant="home produtos"><img src="img/grid/20210528-Capim-Rosa-4860.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20210906-Tapecaria-Aveia" data-start="0" data-site-variant="home produtos"><img src="img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2148-cover.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20220901-Enquanto" data-start="4" data-site-variant="home produtos"><img src="img/20220901-Enquanto/20220901-Enquanto-0446-cover.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20230807-Tapecaria-Aveia" data-start="3" data-site-variant="home produtos"><img src="img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3287.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20210528-Capim-Rosa" data-start="3" data-site-variant="home produtos"><img src="img/20210528-Capim-Rosa/20210528-Capim-Rosa-4856.webp" loading="lazy" decoding="async"></div>
       <div class="gallery-item" data-gallery="20211126-Capim-Rosa" data-start="1" data-site-variant="home produtos"><img src="img/grid/20211126-Capim-Rosa-2656.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20231207-Cozinha-Tupis" data-start="4" data-site-variant="home gastronomia"><img src="img/grid/20231207-Cozinha-Tupis-5865.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20240308-Oficina-Paraiso" data-start="11" data-site-variant="home"><img src="img/grid/20240308-Oficina-Paraiso-8109.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20230613-Juramento-202" data-start="4" data-site-variant="home gastronomia"><img src="img/grid/20230613-Juramento-202-2626.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20240404-Juramento-202" data-start="2" data-site-variant="home gastronomia"><img src="img/grid/20240404-Juramento-202-8679.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20240418-Tapecaria-Aveia" data-start="8" data-site-variant="home produtos"><img src="img/grid/20240418-Tapecaria-Aveia-9927.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20240419-Guaramao-0383.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="home"><img src="img/grid/20240427-Copa-Cozinha-0800.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20241106-Cozinha-Tupis" data-start="3" data-site-variant="home gastronomia"><img src="img/grid/20241106-Cozinha-Tupis-0612.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20241106-Cozinha-Tupis" data-start="2" data-site-variant="gastronomia"><img src="img/grid/20241106-Cozinha-Tupis-0556.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4226.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4327.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/20250627-Cozinha-Tupis-4349.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20250724-Forno-da-Saudade" data-start="3" data-site-variant="home gastronomia"><img src="img/grid/20250724-Forno-da-Saudade-4992.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20250724-Forno-da-Saudade" data-start="4" data-site-variant="home gastronomia"><img src="img/grid/20250724-Forno-da-Saudade-5044.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20250918-Cafe-Nice" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20250918-Cafe-Nice-7921.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20231006-Distribuidora-Goitacazes" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20231006-Distribuidora-Goitacazes-4529.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20251009-Hacienda-1979" data-start="1" data-site-variant="home gastronomia"><img src="img/grid/20251009-Hacienda-1979-8304.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20251021-Cozinha-Tupis" data-start="5" data-site-variant="home gastronomia"><img src="img/grid/20251021-Cozinha-Tupis-8971.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-gallery="20251114-Copa-Cozinha" data-start="9" data-site-variant="home gastronomia"><img src="img/grid/20251114-Copa-Cozinha-0410.webp" loading="lazy" decoding="async"></div>
-      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/Casa-Alvorada-0128.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="home gastronomia"><img src="img/grid/paodequeijo_bernardosilva_2024_001.webp" loading="lazy"></div>
-      <div class="gallery-item" data-site-variant="gastronomia"><img src="img/grid/paodequeijo_bernardosilva_2024_002.webp" loading="lazy"></div>
-      <div class="gallery-item" data-gallery="20240228-Casinha-do-Jura" data-start="0" data-site-variant="home gastronomia"><img src="img/grid/20240228-Casinha-do-Jura.webp" loading="lazy" decoding="async"></div>
+      <div class="gallery-item" data-gallery="20240418-Tapecaria-Aveia" data-start="4" data-site-variant="home produtos"><img src="img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9813.webp" loading="lazy" decoding="async"></div>
     </div>
   </main>
 
@@ -677,6 +1157,10 @@
       <a class="site-footer-link" data-footer-variant="gastronomia" href="https://gastronomia.bernardosilva.site/">gastronomia</a>
       <a class="site-footer-link" data-footer-variant="produtos" href="https://produtos.bernardosilva.site/">produtos</a>
       <a class="site-footer-link" data-footer-variant="home" href="https://www.bernardosilva.site/">acervos</a>
+      <span class="site-footer-about">
+        <button id="nav-about-btn" aria-label="Abrir sobre">about</button>
+        <button id="nav-close-btn" aria-label="Fechar sobre">close</button>
+      </span>
     </nav>
   </footer>
 
@@ -685,7 +1169,10 @@
     <span id="lightbox-prev" aria-label="Anterior">&#8592;</span>
     <div id="lightbox-track">
       <img id="lightbox-prev-preview" class="lightbox-side-image" src="" alt="" aria-hidden="true">
-      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-main">
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" aria-hidden="true"></div>
+      </div>
       <img id="lightbox-next-preview" class="lightbox-side-image" src="" alt="" aria-hidden="true">
     </div>
     <span id="lightbox-next" aria-label="Próximo">&#8594;</span>
@@ -703,15 +1190,23 @@
       const twitterTitle = document.querySelector('meta[name="twitter:title"]');
       const twitterDescription = document.querySelector('meta[name="twitter:description"]');
       const allGalleryItems = Array.from(gallery.children);
+      const requestedGridMode = new URLSearchParams(window.location.search).get('grid');
+      const requestedGalleryIcon = new URLSearchParams(window.location.search).get('icon');
+
+      if (requestedGridMode && ['editorial', 'premium', 'impacto', 'justificado', 'lateral'].includes(requestedGridMode)) {
+        document.body.dataset.gridMode = requestedGridMode;
+      }
+
+      if (requestedGalleryIcon && ['rings', 'pulse', 'orbit', 'coin'].includes(requestedGalleryIcon)) {
+        document.body.dataset.galleryIcon = requestedGalleryIcon;
+      } else {
+        document.body.dataset.galleryIcon = 'rings';
+      }
 
       const siteConfigs = {
         home: {
-          title: 'Bernardo Silva',
-          description: 'Fotografia de gastronomia por Bernardo Silva. Um olhar atento à matéria, à luz e à presença concreta das coisas.'
-        },
-        gastronomia: {
-          title: 'Bernardo Silva - Gastronomia',
-          description: 'Selecao de fotografia de gastronomia por Bernardo Silva. Imagens guiadas por luz, matéria, gesto e presença.'
+          title: 'Bernardo Silva - Produtos',
+          description: 'Selecao de fotografia de produtos por Bernardo Silva. Imagens precisas, contidas e atentas à matéria e à forma.'
         },
         produtos: {
           title: 'Bernardo Silva - Produtos',
@@ -730,6 +1225,8 @@
         if (normalizedQuery === 'produtos' || normalizedQuery === 'produto') return 'produtos';
         if (hostname.startsWith('gastronomia.')) return 'gastronomia';
         if (hostname.startsWith('produtos.')) return 'produtos';
+        if (pathname.includes('bernardosilva.site-gastronomia')) return 'gastronomia';
+        if (pathname.includes('bernardosilva.site-produtos')) return 'produtos';
         if (pathname.includes('/gastronomia')) return 'gastronomia';
         if (pathname.includes('/produtos')) return 'produtos';
         return 'home';
@@ -737,6 +1234,12 @@
 
       const currentSiteVariant = getSiteVariant();
       const footerLinks = Array.from(document.querySelectorAll('#site-footer [data-footer-variant]'));
+
+      document.body.dataset.siteVariant = currentSiteVariant;
+
+      if (!document.body.dataset.gridMode && currentSiteVariant === 'produtos') {
+        document.body.dataset.gridMode = 'lateral';
+      }
 
       function applyFooterNavState() {
         footerLinks.forEach((link) => {
@@ -788,9 +1291,407 @@
         gallery.appendChild(fragment);
       }
 
+      function getEssayKey(item) {
+        if (item.dataset.gallery) return item.dataset.gallery;
+        const image = item.querySelector('img');
+        if (!image) return '';
+        const src = image.getAttribute('src') || '';
+        const filename = src.split('/').pop() || '';
+        return filename.replace(/\.[^.]+$/, '');
+      }
+
+      function formatEssayLabel(rawKey) {
+        if (!rawKey) return '';
+
+        const displayNameMap = {
+          'tapecaria-aveia': 'Tapeçaria Aveia',
+          'cafe-nice': 'Café Nice',
+          'cozinha-da-vo-ana': 'Cozinha da Vó Ana',
+          'casinha-do-jura': 'Casinha do Jura',
+          'forno-da-saudade': 'Forno da Saudade',
+          'cozinha-tupis': 'Cozinha Tupis',
+          'juramento-202': 'Juramento 202',
+          'hacienda-1979': 'Hacienda 1979',
+          'distribuidora-goitacazes': 'Distribuidora Goitacazes',
+          'copa-cozinha': 'Copa Cozinha',
+          'curamagoa': 'Curamagoa',
+          'casa-gabo': 'Casa Gabo',
+          'capim-rosa': 'Capim Rosa',
+          'casa-alvorada': 'Casa Alvorada',
+          'guaramao': 'Guaramão'
+        };
+
+        const dateMatch = rawKey.match(/^(\d{4})(\d{2})(\d{2})-(.+)$/);
+        if (dateMatch) {
+          const slug = dateMatch[4].toLowerCase().replace(/-(\d{4,})$/, '');
+          return displayNameMap[slug] || slug.replace(/-/g, ' ');
+        }
+
+        const cleanedKey = rawKey
+          .replace(/-(\d{4,})$/, '')
+          .replace(/[_]/g, '-')
+          .toLowerCase();
+
+        if (displayNameMap[cleanedKey]) {
+          return displayNameMap[cleanedKey];
+        }
+
+        return cleanedKey
+          .replace(/-/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
+      function enhanceLateralCaptions() {
+        if (document.body.dataset.gridMode !== 'lateral') return;
+
+        allGalleryItems.forEach((item) => {
+          if (item.dataset.captionEnhanced === 'true') return;
+
+          const label = formatEssayLabel(getEssayKey(item));
+          if (label) {
+            const caption = document.createElement('span');
+            caption.className = 'lateral-caption';
+            Array.from(label).forEach((char) => {
+              const charEl = document.createElement('span');
+              charEl.className = 'lateral-caption-char';
+              charEl.textContent = char === ' ' ? '\u00A0' : char;
+              caption.appendChild(charEl);
+            });
+            item.appendChild(caption);
+          }
+
+          if (item.dataset.gallery) {
+            item.classList.add('has-gallery');
+
+            if (document.body.dataset.galleryIcon === 'rings' && !item.querySelector('.gallery-icon-rings-third')) {
+              const thirdRing = document.createElement('span');
+              thirdRing.className = 'gallery-icon-rings-third';
+              item.appendChild(thirdRing);
+            }
+          }
+
+          item.dataset.captionEnhanced = 'true';
+        });
+      }
+
+      function resetJustifiedLayout() {
+        gallery.style.height = '';
+        Array.from(gallery.children).forEach((item) => {
+          const image = item.querySelector('img');
+          item.style.width = '';
+          item.style.height = '';
+          item.style.flex = '';
+          if (image) {
+            image.style.width = '';
+            image.style.height = '';
+          }
+        });
+      }
+
+      function getJustifiedConfig() {
+        if (window.innerWidth <= 400) return { targetHeight: 138, gap: 10 };
+        if (window.innerWidth <= 600) return { targetHeight: 168, gap: 12 };
+        if (window.innerWidth <= 900) return { targetHeight: 230, gap: 14 };
+        if (window.innerWidth <= 1200) return { targetHeight: 290, gap: 16 };
+        return { targetHeight: 320, gap: 18 };
+      }
+
+      function layoutJustifiedGrid() {
+        if (document.body.dataset.gridMode !== 'justificado') {
+          resetJustifiedLayout();
+          return;
+        }
+
+        const visibleItems = Array.from(gallery.children);
+        if (!visibleItems.length) return;
+
+        resetJustifiedLayout();
+
+        const { targetHeight, gap } = getJustifiedConfig();
+        const galleryWidth = gallery.clientWidth;
+
+        if (!galleryWidth) return;
+
+        let row = [];
+        let rowAspectSum = 0;
+
+        const applyRow = (rowItems, aspectSum, isLastRow) => {
+          if (!rowItems.length || !aspectSum) return;
+
+          const totalGap = gap * Math.max(0, rowItems.length - 1);
+          let rowHeight = (galleryWidth - totalGap) / aspectSum;
+
+          if (isLastRow) {
+            rowHeight = Math.min(targetHeight, rowHeight);
+          }
+
+          rowItems.forEach(({ item, ratio }) => {
+            const width = rowHeight * ratio;
+            const image = item.querySelector('img');
+            item.style.width = `${width}px`;
+            item.style.height = `${rowHeight}px`;
+            item.style.flex = `0 0 ${width}px`;
+
+            if (image) {
+              image.style.width = '100%';
+              image.style.height = '100%';
+            }
+          });
+        };
+
+        visibleItems.forEach((item) => {
+          const image = item.querySelector('img');
+          const naturalWidth = image && image.naturalWidth ? image.naturalWidth : 4;
+          const naturalHeight = image && image.naturalHeight ? image.naturalHeight : 5;
+          const ratio = naturalWidth / naturalHeight;
+
+          row.push({ item, ratio });
+          rowAspectSum += ratio;
+
+          const projectedWidth = rowAspectSum * targetHeight + gap * (row.length - 1);
+          if (projectedWidth >= galleryWidth * 0.97) {
+            applyRow(row, rowAspectSum, false);
+            row = [];
+            rowAspectSum = 0;
+          }
+        });
+
+        if (row.length) {
+          applyRow(row, rowAspectSum, true);
+        }
+      }
+
+      function bindJustifiedGridImages() {
+        if (document.body.dataset.gridMode !== 'justificado') return;
+
+        Array.from(gallery.querySelectorAll('img')).forEach((image) => {
+          if (image.complete) return;
+          image.addEventListener('load', layoutJustifiedGrid, { once: true });
+        });
+      }
+
+      let lateralAnimationFrame = null;
+      let lateralVelocity = 0;
+      let lateralSegmentWidths = [];
+      let lateralOffsets = [];
+      let lateralTrack = null;
+      let lateralRowTracks = [];
+
+      function resetLateralLayout() {
+        gallery.innerHTML = '';
+        allGalleryItems.forEach((item) => {
+          const image = item.querySelector('img');
+          item.removeAttribute('data-lateral-shape');
+          item.style.width = '';
+          item.style.height = '';
+          item.style.flex = '';
+          if (image) {
+            image.style.width = '';
+            image.style.height = '';
+          }
+        });
+        lateralSegmentWidths = [];
+        lateralOffsets = [];
+        lateralTrack = null;
+        lateralRowTracks = [];
+      }
+
+      function getLateralShape(index, item) {
+        const lockedShape = item?.dataset?.lateralLock;
+
+        if (lockedShape === 'vertical' || lockedShape === 'horizontal') {
+          return lockedShape;
+        }
+
+        const shapePattern = [
+          'vertical',
+          'horizontal',
+          'vertical',
+          'horizontal',
+          'vertical',
+          'horizontal',
+          'vertical',
+          'horizontal'
+        ];
+
+        return shapePattern[index % shapePattern.length];
+      }
+
+      function renderLateralGallery() {
+        const visibleItems = shuffleArray(Array.from(allGalleryItems.filter(itemMatchesVariant)));
+        const fragment = document.createDocumentFragment();
+
+        if (window.innerWidth <= 600) {
+          visibleItems.forEach((item) => fragment.appendChild(item));
+          gallery.innerHTML = '';
+          gallery.appendChild(fragment);
+          lateralSegmentWidths = [];
+          lateralOffsets = [];
+          return;
+        }
+
+        gallery.innerHTML = '';
+        lateralTrack = document.createElement('div');
+        lateralTrack.className = 'lateral-track';
+        const rowBuckets = [[]];
+
+        visibleItems.forEach((item) => {
+          const targetRow = 0;
+          const localIndex = rowBuckets[targetRow].length;
+          const shape = getLateralShape(localIndex, item);
+          rowBuckets[targetRow].push({ item, shape });
+        });
+
+        rowBuckets.forEach((bucket, rowIndex) => {
+          const rowTrack = document.createElement('div');
+          rowTrack.className = 'lateral-row-track';
+
+          for (let segment = 0; segment < 3; segment += 1) {
+            const segmentEl = document.createElement('div');
+            segmentEl.className = 'lateral-segment';
+
+            bucket.forEach(({ item, shape }, index) => {
+              const clone = item.cloneNode(true);
+              clone.dataset.loopSegment = String(segment);
+              clone.dataset.loopRow = String(rowIndex);
+              clone.dataset.lateralShape = shape;
+              if (index === 0) clone.dataset.segmentAnchor = 'true';
+              segmentEl.appendChild(clone);
+            });
+
+            rowTrack.appendChild(segmentEl);
+          }
+
+          lateralTrack.appendChild(rowTrack);
+        });
+
+        fragment.appendChild(lateralTrack);
+        gallery.appendChild(fragment);
+
+        requestAnimationFrame(() => {
+          lateralRowTracks = Array.from(gallery.querySelectorAll('.lateral-row-track'));
+          lateralSegmentWidths = lateralRowTracks.map((rowTrack) => {
+            const segments = rowTrack.querySelectorAll('.lateral-segment');
+            if (segments.length < 2) return 0;
+            return segments[1].offsetLeft - segments[0].offsetLeft;
+          });
+          lateralOffsets = lateralSegmentWidths.map((width) => width);
+          updateLateralTrackPosition();
+        });
+      }
+
+      function layoutLateralGrid() {
+        if (document.body.dataset.gridMode !== 'lateral') {
+          return;
+        }
+
+        resetLateralLayout();
+        renderLateralGallery();
+      }
+
+      function stopLateralScrollLoop() {
+        if (!lateralAnimationFrame) return;
+        cancelAnimationFrame(lateralAnimationFrame);
+        lateralAnimationFrame = null;
+      }
+
+      function updateLateralTrackPosition() {
+        if (!lateralRowTracks.length) return;
+
+        lateralRowTracks.forEach((rowTrack, index) => {
+          const segmentWidth = lateralSegmentWidths[index];
+          if (!segmentWidth) return;
+          const offset = lateralOffsets[index] || 0;
+          const wrappedOffset = ((offset % segmentWidth) + segmentWidth) % segmentWidth;
+          rowTrack.style.transform = `translate3d(${-segmentWidth - wrappedOffset}px, 0, 0)`;
+        });
+      }
+
+      function runLateralScrollLoop() {
+        if (lateralAnimationFrame || document.body.dataset.gridMode !== 'lateral' || window.innerWidth <= 600) {
+          return;
+        }
+
+        const step = () => {
+          if (Math.abs(lateralVelocity) < 0.05 || !lateralSegmentWidths.length || document.body.dataset.gridMode !== 'lateral') {
+            lateralAnimationFrame = null;
+            return;
+          }
+
+          lateralOffsets = lateralOffsets.map((offset) => offset + lateralVelocity);
+          updateLateralTrackPosition();
+          lateralAnimationFrame = requestAnimationFrame(step);
+        };
+
+        lateralAnimationFrame = requestAnimationFrame(step);
+      }
+
+      function bindLateralScroll() {
+        document.removeEventListener('mousemove', handleLateralMouseMove);
+        document.removeEventListener('mouseleave', handleLateralMouseLeave);
+
+        if (document.body.dataset.gridMode !== 'lateral' || window.innerWidth <= 600) {
+          lateralVelocity = 0;
+          stopLateralScrollLoop();
+          return;
+        }
+
+        document.addEventListener('mousemove', handleLateralMouseMove);
+        document.addEventListener('mouseleave', handleLateralMouseLeave);
+      }
+
+      function handleLateralMouseMove(event) {
+        const zoneWidth = Math.max(140, window.innerWidth * 0.16);
+        const maxSpeed = 32;
+        let velocity = 0;
+
+        if (event.clientX < zoneWidth) {
+          const strength = 1 - (event.clientX / zoneWidth);
+          velocity = -maxSpeed * strength;
+        } else if (event.clientX > window.innerWidth - zoneWidth) {
+          const strength = 1 - ((window.innerWidth - event.clientX) / zoneWidth);
+          velocity = maxSpeed * strength;
+        }
+
+        lateralVelocity = velocity;
+
+        if (velocity === 0) {
+          lateralVelocity = 0;
+          stopLateralScrollLoop();
+          return;
+        }
+
+        runLateralScrollLoop();
+      }
+
+      function handleLateralMouseLeave() {
+        lateralVelocity = 0;
+        stopLateralScrollLoop();
+      }
+
+      function bindLateralGridImages() {
+        if (document.body.dataset.gridMode !== 'lateral') return;
+
+        allGalleryItems.forEach((item) => {
+          const image = item.querySelector('img');
+          if (image.complete) return;
+          image.addEventListener('load', layoutLateralGrid, { once: true });
+        });
+      }
+
       applySiteMetadata();
       applyFooterNavState();
-      shuffleGallery();
+      enhanceLateralCaptions();
+      if (document.body.dataset.gridMode === 'lateral') {
+        layoutLateralGrid();
+      } else {
+        shuffleGallery();
+      }
+      bindJustifiedGridImages();
+      layoutJustifiedGrid();
+      bindLateralGridImages();
+      bindLateralScroll();
 
       const overlay = document.getElementById('about-overlay');
       const btnAbout = document.getElementById('nav-about-btn');
@@ -846,6 +1747,21 @@
         navTitle.addEventListener('pointerleave', resetNavTitleMotion);
       }
 
+      navTitle.addEventListener('click', (e) => {
+        e.preventDefault();
+        navTitle.blur();
+
+        const previousPointerEvents = navTitle.style.pointerEvents;
+        navTitle.style.pointerEvents = 'none';
+        const underlyingTarget = document.elementFromPoint(e.clientX, e.clientY);
+        navTitle.style.pointerEvents = previousPointerEvents;
+
+        const underlyingItem = underlyingTarget && underlyingTarget.closest('.gallery-item');
+        if (underlyingItem && gallery.contains(underlyingItem)) {
+          openLB(underlyingItem);
+        }
+      });
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && overlay.classList.contains('active')) {
           closeAbout();
@@ -853,55 +1769,6 @@
       });
 
       const projectGalleries = {
-        '20181111-Copa-Cozinha': [
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00002.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00005.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00006.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00009.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00010.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00013.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00017.webp',
-          'img/20181111-Copa-Cozinha/20181111-Copa-Cozinha-00043.webp'
-        ],
-        '20191009-Curamagoa': [
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941001.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941002.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941005.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941007.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941010.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941011.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941015.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7941033.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7942002.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7942011.webp',
-          'img/20191009-Curamagoa/20191009-Curamagoa-7942031.webp'
-        ],
-        '20191204-Cozinha-da-Vo-Ana': [
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0002.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0004.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0005.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0007.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0015.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0030.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0045.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0048.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0052.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0071.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0081.webp',
-          'img/20191204-Cozinha-da-Vo-Ana/20191204-Cozinha-da-Vo-Ana-0083.webp'
-        ],
-        '20200723-Forno-da-Saudade': [
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0001.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0004.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0010.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0011.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0018.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0022.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0031.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0038.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0041.webp',
-          'img/20200723-Forno-da-Saudade/20200723-Forno-da-Saudade-0043.webp'
-        ],
         '20210528-Capim-Rosa': [
           'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4842.webp',
           'img/20210528-Capim-Rosa/20210528-Capim-Rosa-4846.webp',
@@ -926,6 +1793,17 @@
           'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2230.webp',
           'img/20210906-Tapecaria-Aveia/20210906-Tapecaria-Aveia-2264.webp'
         ],
+        '20220901-Enquanto': [
+          'img/20220901-Enquanto/20220901-Enquanto-0158.webp',
+          'img/20220901-Enquanto/20220901-Enquanto-0276.webp',
+          'img/20220901-Enquanto/20220901-Enquanto-0279.webp',
+          'img/20220901-Enquanto/20220901-Enquanto-0306.webp',
+          'img/20220901-Enquanto/20220901-Enquanto-0446.webp',
+          'img/20220901-Enquanto/enquanto_mochila_jumbo_kraft_02.webp',
+          'img/20220901-Enquanto/enquanto_mochila_peti_preto_01.webp',
+          'img/20220901-Enquanto/enquanto_pochete_envelope_cru_02.webp',
+          'img/20220901-Enquanto/enquanto_pochete_envelope_kraft_01.webp'
+        ],
         '20230807-Tapecaria-Aveia': [
           'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3154.webp',
           'img/20230807-Tapecaria-Aveia/20230807-Tapecaria-Aveia-3240.webp',
@@ -947,56 +1825,6 @@
           'img/20211126-Capim-Rosa/20211126-Capim-Rosa-7734.webp',
           'img/20211126-Capim-Rosa/20211126-Capim-Rosa-7746.webp'
         ],
-        '20230613-Juramento-202': [
-          'img/20230613-Juramento-202/20230613-Juramento-202-2592.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2613.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2618.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2621.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2626.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2632.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2634.webp',
-          'img/20230613-Juramento-202/20230613-Juramento-202-2635.webp'
-        ],
-        '20231207-Cozinha-Tupis': [
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5842.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5848.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5850.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5859.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5865.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5869.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5887.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5940.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5961.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5974.webp',
-          'img/20231207-Cozinha-Tupis/20231207-Cozinha-Tupis-5975.webp'
-        ],
-        '20240308-Oficina-Paraiso': [
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7899.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7917.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7941.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7948.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-7951.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8008.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8017.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8034.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8051.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8070.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8101.webp',
-          'img/20240308-Oficina-Paraiso/20240308-Oficina-Paraiso-8109.webp'
-        ],
-        '20240404-Juramento-202': [
-          'img/20240404-Juramento-202/20240404-Juramento-202-8670.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8673.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8679.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8683.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8689.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8694.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8697.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8700.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8704.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8708.webp',
-          'img/20240404-Juramento-202/20240404-Juramento-202-8718.webp'
-        ],
         '20240418-Tapecaria-Aveia': [
           'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-0004.webp',
           'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9672.webp',
@@ -1007,104 +1835,9 @@
           'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9842.webp',
           'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9878.webp',
           'img/20240418-Tapecaria-Aveia/20240418-Tapecaria-Aveia-9927.webp'
-        ],
-        '20240228-Casinha-do-Jura': [
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-6996.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-6998.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7002.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7003.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7006.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7007.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7008.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7033.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7042.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7049.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7051.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7052.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7053.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7083.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7091.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7099.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7108.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7116.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7133.webp',
-          'img/20240228-Casinha-do-Jura/20240228-Casinha-do-Jura-7139.webp'
-        ],
-        '20231006-Distribuidora-Goitacazes': [
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4504.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4529.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4532.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4536.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4561.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4600.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4610.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4618.webp',
-          'img/20231006-Distribuidora-Goitacazes/20231006-Distribuidora-Goitacazes-4626.webp'
-        ],
-        '20250724-Forno-da-Saudade': [
-          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4593.webp',
-          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4771.webp',
-          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4977.webp',
-          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4990.webp',
-          'img/20250724-Forno-da-Saudade/20250724-Forno-da-Saudade-4993.webp'
-        ],
-        '20250918-Cafe-Nice': [
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7907.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7921.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7918.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-7928.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8110.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8118.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8120.webp',
-          'img/20250918-Cafe-Nice/20250918-Cafe-Nice-8143.webp'
-        ],
-        '20251009-Hacienda-1979': [
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8301.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8304.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8312.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8327.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8335.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8357.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8360.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8374.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8396.webp',
-          'img/20251009-Hacienda-1979/20251009-Hacienda-1979-8422.webp'
-        ],
-        '20241106-Cozinha-Tupis': [
-          'img/20241106-Cozinha-Tupis/20241106-Cozinha-Tupis-0450.webp',
-          'img/20241106-Cozinha-Tupis/20241106-Cozinha-Tupis-0453.webp',
-          'img/20241106-Cozinha-Tupis/20241106-Cozinha-Tupis-0556.webp',
-          'img/20241106-Cozinha-Tupis/20241106-Cozinha-Tupis-0612.webp',
-          'img/20241106-Cozinha-Tupis/20241106-Cozinha-Tupis-0653.webp'
-        ],
-        '20251021-Cozinha-Tupis': [
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8902.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8940.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8947.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8956.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8960.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-8971.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-9007.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-9029.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-9032.webp',
-          'img/20251021-Cozinha-Tupis/20251021-Cozinha-Tupis-9136.webp'
-        ],
-        '20251114-Copa-Cozinha': [
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0165.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0201.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0212.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0216.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0225.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0235.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0237.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0279.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0321.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0410.webp',
-          'img/20251114-Copa-Cozinha/20251114-Copa-Cozinha-0414.webp'
         ]
       };
 
-      const items = Array.from(document.querySelectorAll('.gallery-item'));
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightbox-img');
       const lbPrevPreview = document.getElementById('lightbox-prev-preview');
@@ -1113,8 +1846,10 @@
       const lbPrev = document.getElementById('lightbox-prev');
       const lbNext = document.getElementById('lightbox-next');
       const lbTrack = document.getElementById('lightbox-track');
+      const lbCaption = document.getElementById('lightbox-caption');
       let currentGallery = [];
       let current = 0;
+      let currentGalleryLabel = '';
       let touchStartX = 0;
       let touchStartY = 0;
       let openingAnimationFrame = null;
@@ -1185,6 +1920,7 @@
 
       function updateLightboxImage() {
         lbImg.src = currentGallery[current];
+        lbCaption.textContent = currentGalleryLabel;
         updateSidePreviews();
       }
 
@@ -1252,6 +1988,7 @@
       function openLB(item) {
         const startIndex = Number.parseInt(item.dataset.start || '0', 10);
         currentGallery = getGalleryFromItem(item);
+        currentGalleryLabel = formatEssayLabel(getEssayKey(item));
         current = Number.isNaN(startIndex)
           ? 0
           : Math.max(0, Math.min(startIndex, currentGallery.length - 1));
@@ -1269,9 +2006,11 @@
         lb.classList.remove('active');
         document.body.style.overflow = '';
         lbImg.src = '';
+        lbCaption.textContent = '';
         lbPrevPreview.src = '';
         lbNextPreview.src = '';
         currentGallery = [];
+        currentGalleryLabel = '';
         deferSidePreviews = false;
       }
 
@@ -1287,8 +2026,10 @@
         updateLightboxImage();
       }
 
-      items.forEach((item) => {
-        item.addEventListener('click', () => openLB(item));
+      gallery.addEventListener('click', (e) => {
+        const item = e.target.closest('.gallery-item');
+        if (!item || !gallery.contains(item)) return;
+        openLB(item);
       });
 
       lbClose.addEventListener('click', closeLB);
@@ -1380,6 +2121,9 @@
       window.addEventListener('resize', () => {
         resizeGrainCanvas();
         drawGrain();
+        layoutJustifiedGrid();
+        layoutLateralGrid();
+        bindLateralScroll();
       });
 
       setInterval(drawGrain, 65);
