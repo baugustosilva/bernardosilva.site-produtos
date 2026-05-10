@@ -1478,6 +1478,7 @@
       let lateralOffsets = [];
       let lateralTrack = null;
       let lateralRowTracks = [];
+      let lateralLoopBaseSegment = 1;
 
       function resetLateralLayout() {
         gallery.innerHTML = '';
@@ -1536,6 +1537,8 @@
         lateralTrack = document.createElement('div');
         lateralTrack.className = 'lateral-track';
         const rowBuckets = [[]];
+        const segmentCopies = currentSiteVariant === 'produtos' ? 9 : 3;
+        lateralLoopBaseSegment = currentSiteVariant === 'produtos' ? Math.floor(segmentCopies / 2) : 1;
 
         visibleItems.forEach((item) => {
           const targetRow = 0;
@@ -1548,15 +1551,21 @@
           const rowTrack = document.createElement('div');
           rowTrack.className = 'lateral-row-track';
 
-          for (let segment = 0; segment < 3; segment += 1) {
+          for (let segment = 0; segment < segmentCopies; segment += 1) {
             const segmentEl = document.createElement('div');
             segmentEl.className = 'lateral-segment';
 
             bucket.forEach(({ item, shape }, index) => {
               const clone = item.cloneNode(true);
+              const cloneImage = clone.querySelector('img');
               clone.dataset.loopSegment = String(segment);
               clone.dataset.loopRow = String(rowIndex);
               clone.dataset.lateralShape = shape;
+              if (cloneImage) {
+                cloneImage.loading = 'eager';
+                cloneImage.addEventListener('load', measureLateralSegments, { once: true });
+                cloneImage.addEventListener('error', measureLateralSegments, { once: true });
+              }
               if (index === 0) clone.dataset.segmentAnchor = 'true';
               segmentEl.appendChild(clone);
             });
@@ -1571,14 +1580,7 @@
         gallery.appendChild(fragment);
 
         requestAnimationFrame(() => {
-          lateralRowTracks = Array.from(gallery.querySelectorAll('.lateral-row-track'));
-          lateralSegmentWidths = lateralRowTracks.map((rowTrack) => {
-            const segments = rowTrack.querySelectorAll('.lateral-segment');
-            if (segments.length < 2) return 0;
-            return segments[1].offsetLeft - segments[0].offsetLeft;
-          });
-          lateralOffsets = lateralSegmentWidths.map((width) => width);
-          updateLateralTrackPosition();
+          requestAnimationFrame(measureLateralSegments);
         });
       }
 
@@ -1605,10 +1607,25 @@
           if (!segmentWidth) return;
           const offset = lateralOffsets[index] || 0;
           const wrappedOffset = ((offset % segmentWidth) + segmentWidth) % segmentWidth;
-          rowTrack.style.transform = `translate3d(${-segmentWidth - wrappedOffset}px, 0, 0)`;
+          rowTrack.style.transform = `translate3d(${-(segmentWidth * lateralLoopBaseSegment) - wrappedOffset}px, 0, 0)`;
         });
       }
 
+      function measureLateralSegments() {
+        if (document.body.dataset.gridMode !== 'lateral' || window.innerWidth <= 600) return;
+
+        lateralRowTracks = Array.from(gallery.querySelectorAll('.lateral-row-track'));
+        lateralSegmentWidths = lateralRowTracks.map((rowTrack) => {
+          const segments = rowTrack.querySelectorAll('.lateral-segment');
+          if (segments.length < 2) return 0;
+          return segments[1].offsetLeft - segments[0].offsetLeft;
+        });
+        lateralOffsets = lateralSegmentWidths.map((width, index) => {
+          const currentOffset = lateralOffsets[index];
+          return Number.isFinite(currentOffset) ? currentOffset : 0;
+        });
+        updateLateralTrackPosition();
+      }
       function runLateralScrollLoop() {
         if (lateralAnimationFrame || document.body.dataset.gridMode !== 'lateral' || window.innerWidth <= 600) {
           return;
